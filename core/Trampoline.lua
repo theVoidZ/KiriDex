@@ -126,7 +126,7 @@ function Trampoline:draw()
 		local h = self.images[self.frame]:getHeight()
 		love.graphics.setColor(1,1,1,1)
 		love.graphics.draw(self.images[self.frame],self.position.x, self.position.y + self.hover_offset, self.rotation,1,1,w/2,h/2)
-		love.graphics.circle("line",self.position.x, self.position.y + self.hover_offset, self.pick_range)
+		-- love.graphics.circle("line",self.position.x, self.position.y + self.hover_offset, self.pick_range)
 	end
 end
 
