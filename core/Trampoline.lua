@@ -24,6 +24,7 @@ function Trampoline:init(dx,dy)
 	self.push_power = 1000
 	
 	self.willPlay = false
+	self.willPlay2 = false
 	
 	self.frame = 1
 	self.anim_speed_const = 50
@@ -48,10 +49,12 @@ function Trampoline:init(dx,dy)
 	self.hover_offset = 0
 	self.onPickUp = function(id)
 		if ACTORS[id] then
-			self.sounds.trampoline:play()
-			ACTORS[id]:ForceMove(350)
-			ACTORS[id].velocity.x = self.push_power * self.direction.x
-			ACTORS[id].velocity.y = self.push_power * self.direction.y
+			if not ACTORS[id].isDead then
+				self.sounds.trampoline:play()
+				ACTORS[id]:ForceMove(350)
+				ACTORS[id].velocity.x = self.push_power * self.direction.x
+				ACTORS[id].velocity.y = self.push_power * self.direction.y
+			end
 		end
 	end
 end
@@ -112,8 +115,21 @@ function Trampoline:update(dt)
 					self.onPickUp(self.id)
 				end
 				if self.frame > #self.images then
-					self.frame = 1
+					self.frame = 4
 					self.willPlay = false
+					self.willPlay2 = true
+				end
+			end
+		end
+		if self.willPlay2 then
+			if self.anim_speed > 0 then
+				self.anim_speed = self.anim_speed - 1000*dt
+			else
+				self.anim_speed = self.anim_speed_const
+				self.frame = self.frame - 1
+				if self.frame < 1 then
+					self.frame = 1
+					self.willPlay2 = false
 				end
 			end
 		end
@@ -126,7 +142,6 @@ function Trampoline:draw()
 		local h = self.images[self.frame]:getHeight()
 		love.graphics.setColor(1,1,1,1)
 		love.graphics.draw(self.images[self.frame],self.position.x, self.position.y + self.hover_offset, self.rotation,1,1,w/2,h/2)
-		-- love.graphics.circle("line",self.position.x, self.position.y + self.hover_offset, self.pick_range)
 	end
 end
 

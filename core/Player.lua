@@ -52,7 +52,7 @@ function Player:init()
 	self.isPowered_jump = false
 	
 	self.abilities = {
-						Jump = false,
+						Jump = true,
 						Powered_Jump = false,
 						Super_Speed = false,
 						Super_Jump = false,
