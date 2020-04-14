@@ -53,7 +53,7 @@ function love.load()
 	
 	PLAY_IMAGE = love.graphics.newImage("gfx/Play.png")
 	
-	DEBUG = true
+	DEBUG = false
 	
 	FOLDER_NAME = "Platformer Simulator"
 	love.filesystem.setIdentity(FOLDER_NAME);

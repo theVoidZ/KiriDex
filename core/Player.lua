@@ -52,13 +52,13 @@ function Player:init()
 	self.isPowered_jump = false
 	
 	self.abilities = {
-						Jump = true,
+						Jump = false,
 						Powered_Jump = false,
 						Super_Speed = false,
 						Super_Jump = false,
 						Super_Dash = false,
 						Feather_Fall = false,
-						Dash = true}
+						Dash = false}
 	self.look_direction = 1
 	
 	
