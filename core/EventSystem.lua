@@ -31,7 +31,8 @@ function EventSystem:init()
 	-- p:ChangeAbility("Super_Speed",true)
 	-- p:ChangeAbility("Super_Jump",true)
 	-- p:ChangeAbility("Super_Dash",true)
-	-- p:ChangeAbility("Dash",true)
+	p:ChangeAbility("Powered_Jump",true)
+	p:ChangeAbility("Dash",true)
 	
 end
 

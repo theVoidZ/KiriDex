@@ -121,10 +121,10 @@ function Player:init()
 	
 	------------ Sounds
 	self.sounds = {}
-	self.sounds.jump1 = love.audio.newSource("sfx/Player/jump1.wav","stream")
-	self.sounds.jump2 = love.audio.newSource("sfx/Player/longjump1.wav","stream")
-	self.sounds.dash1 = love.audio.newSource("sfx/Player/dash1.wav","stream")
-	self.sounds.land1 = love.audio.newSource("sfx/Player/jumpland2.wav","stream")
+	self.sounds.jump1 = love.audio.newSource("sfx/Player/jump3.wav","stream")
+	self.sounds.jump2 = love.audio.newSource("sfx/Player/jump2.wav","stream")
+	self.sounds.dash1 = love.audio.newSource("sfx/Player/dash2.wav","stream")
+	self.sounds.land1 = love.audio.newSource("sfx/Player/jumpland3.wav","stream")
 	self.sounds.death1 = love.audio.newSource("sfx/Player/CelesteDeath.wav","stream")
 	self.sounds.death2 = love.audio.newSource("sfx/Player/CelesteDeath2.wav","stream")
 	self.sounds.powerup1 = love.audio.newSource("sfx/Player/Powerup10.wav","stream")
