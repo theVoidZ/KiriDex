@@ -35,6 +35,11 @@ function Player:init()
 	self.jump_power_const = 100
 	self.jump_power = 100
 	
+	self.sliding_speed = 100
+	self.isSliding = false
+	self.left_collision = false
+	self.right_collision = false
+	
 	self.time_inAir = 0
 	
 	self.respawn_point = self.position.copy
@@ -275,8 +280,31 @@ function Player:update(ddt)
 				self:BetterJump(dt)
 				self:handleControls(dt)
 				-- if not self.isGrounded or self.velocity.x ~= 0 then
+				if self:collideAt(SOLIDS,self.position + Vector(1,0)) then
+					self.right_collision = true
+				else
+					self.right_collision = false
+				end
+				if self:collideAt(SOLIDS,self.position + Vector(-1,0)) then
+					self.left_collision = true
+				else
+					self.left_collision = false
+				end
+				
+				local sliding_mod = 1
+				if self.left_collision and sign(self.velocity.x) == -1 then
+					sliding_mod = 0.1
+					self.isSliding = true
+				elseif self.right_collision and sign(self.velocity.x) == 1 then
+					sliding_mod = 0.1
+					self.isSliding = true
+				end
+				
 				if not self:collideAt(SOLIDS,self.position + Vector(0,1)) then
 					self.velocity.y = self.velocity.y + self.gravity*dt * self.gravity_scale
+					if self.isSliding and self.velocity.y > 0 then
+						self.velocity.y = math.max(self.velocity.y * sliding_mod,self.sliding_speed)
+					end
 				end
 			else
 				self:handleDashing(dt)
@@ -368,6 +396,7 @@ function Player:handleDashing(dt)
 end
 
 function Player:handleMoving(dt)
+	local sliding_mod = 1
 	table.insert(self.move_trail,{x=self.position.x,y=self.position.y})
 	if #self.move_trail > self.max_move_trail then
 		table.remove(self.move_trail,1)
@@ -384,6 +413,7 @@ function Player:handleMoving(dt)
 					end
 				end
 			end)
+			
 			if self.isForcedMoving then
 				self.velocity.x = self.velocity.x * 0.9
 			end
@@ -396,7 +426,7 @@ function Player:handleMoving(dt)
 					self.timeFromLastGround = self.timeFromLastGround_const
 				end
 				self.isGrounded = true
-				print(self.isGrounded)
+				-- print(self.isGrounded)
 				self.isPowered_jump = false
 				self.canDash = true
 				self.velocity.y = 0
@@ -630,7 +660,9 @@ function Player:draw()
 			
 			love.graphics.setColor(1,1,1,1)
 			-- love.graphics.print(tostring(#self.trail_images),50,30)
-			love.graphics.print(tostring(self.velocity.x),self.position.x,200)
+			love.graphics.print(tostring(self.left_collision),self.position.x-30,self.position.y)
+			love.graphics.print(tostring(self.right_collision),self.position.x+30,self.position.y)
+			love.graphics.print(tostring(self.velocity.y),self.position.x,self.position.y-20)
 			love.graphics.setColor(1,0,0,1)
 			
 			-- local dx = self.position.x + self.size.x/2 + self.dash_direction.x * 120
