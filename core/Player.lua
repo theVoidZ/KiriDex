@@ -36,9 +36,11 @@ function Player:init()
 	self.jump_power = 100
 	
 	self.sliding_speed = 100
+	self.willSliding = false -- bruh
 	self.isSliding = false
 	self.left_collision = false
 	self.right_collision = false
+	self.wallJumped = false
 	
 	self.time_inAir = 0
 	
@@ -277,27 +279,30 @@ function Player:update(ddt)
 					self.scale.y = math.clamp(self.scale.y + 30*dt,0,1)
 				end			
 				
-				self:BetterJump(dt)
-				self:handleControls(dt)
-				-- if not self.isGrounded or self.velocity.x ~= 0 then
 				if self:collideAt(SOLIDS,self.position + Vector(1,0)) then
 					self.right_collision = true
+					print("RGHT HT")
 				else
 					self.right_collision = false
 				end
 				if self:collideAt(SOLIDS,self.position + Vector(-1,0)) then
 					self.left_collision = true
+					print("LEFT HT")
 				else
 					self.left_collision = false
 				end
 				
+				self.isSliding = (self.right_collision or self.left_collision)
+				print("SLDNG",self.isSliding)
+				
+				self:BetterJump(dt)
+				self:handleControls(dt)
+				
+				-- if not self.isGrounded or self.velocity.x ~= 0 then
+				
 				local sliding_mod = 1
-				if self.left_collision and sign(self.velocity.x) == -1 then
+				if self.willSliding then
 					sliding_mod = 0.1
-					self.isSliding = true
-				elseif self.right_collision and sign(self.velocity.x) == 1 then
-					sliding_mod = 0.1
-					self.isSliding = true
 				end
 				
 				if not self:collideAt(SOLIDS,self.position + Vector(0,1)) then
@@ -311,7 +316,7 @@ function Player:update(ddt)
 			end
 			
 			self:handleMoving(dt)
-			
+			-- self.wallJumped = false
 			if self.isGrounded then
 				if self.timeFromLastGround > 0 then
 					self.timeFromLastGround = self.timeFromLastGround - 1000*dt
@@ -397,6 +402,7 @@ end
 
 function Player:handleMoving(dt)
 	local sliding_mod = 1
+	-- print("VELOCTY STARTED",self.velocity.x)
 	table.insert(self.move_trail,{x=self.position.x,y=self.position.y})
 	if #self.move_trail > self.max_move_trail then
 		table.remove(self.move_trail,1)
@@ -415,7 +421,7 @@ function Player:handleMoving(dt)
 			end)
 			
 			if self.isForcedMoving then
-				self.velocity.x = self.velocity.x * 0.9
+				-- self.velocity.x = self.velocity.x * 0.9
 			end
 	end
 	if self.velocity.y ~= 0 then
@@ -444,6 +450,10 @@ function Player:handleMoving(dt)
 			end
 			end)
 	end
+	if self.velocity.y >= 0 then
+		self.wallJumped = false
+	end
+	-- print("VELOCTY ENDED",self.velocity.x)
 end
 
 function Player:setMove(bool) -- set if Player can mùove
@@ -461,12 +471,19 @@ end
 function Player:handleControls(dt)
 	if not self.canMove or self.isDead then return false end
 	if love.keyboard.isDown(love.keyboard.getKeyFromScancode("a")) then
-		if not self.isForcedMoving then
-			self.velocity.x = -self.speed
-		else
-			if self.velocity.x == 0 then
-				self.velocity.x = -self.speed/2
+		if not self.willSliding then
+			if not self.isForcedMoving then
+				self.velocity.x = -self.speed
+			else
+				if self.velocity.x == 0 then
+					self.velocity.x = -self.speed/2
+				end
 			end
+		end
+		if self.left_collision then
+			self.willSliding = true
+		else
+			self.willSliding = false
 		end
 		self.look_direction = -1
 		self.dash_direction.x = -1
@@ -479,12 +496,19 @@ function Player:handleControls(dt)
 			self.dash_direction.y = 0
 		end
 	elseif love.keyboard.isDown(love.keyboard.getKeyFromScancode("d")) then
-		if not self.isForcedMoving then
-			self.velocity.x = self.speed
-		else
-			if self.velocity.x == 0 then
-				self.velocity.x = self.speed/2
+		if not self.willSliding then
+			if not self.isForcedMoving then
+				self.velocity.x = self.speed
+			else
+				if self.velocity.x == 0 then
+					self.velocity.x = self.speed/2
+				end
 			end
+		end
+		if self.right_collision then
+			self.willSliding = true
+		else
+			self.willSliding = false
 		end
 		self.look_direction = 1
 		
@@ -498,9 +522,12 @@ function Player:handleControls(dt)
 			self.dash_direction.y = 0
 		end
 	else
-		if not self.isForcedMoving then
-			self.velocity.x = 0
+		if not self.willSliding then
+			if not self.isForcedMoving then
+				self.velocity.x = 0
+			end
 		end
+		self.willSliding = false
 		self.dash_direction.x = self.look_direction
 		
 		
@@ -514,6 +541,7 @@ function Player:handleControls(dt)
 			self.dash_direction.y = 0
 		end
 	end
+	print("Sliding me rolling",self.willSliding)
 	self:FeatherFall()
 end
 
@@ -535,8 +563,10 @@ function Player:keypressed(k)
 	if not self.canMove or self.isDead then return false end
 	if k == "y" then
 		if self.isGrounded then
-				self:NormalJump()
-			end
+			self:NormalJump()
+		elseif self.willSliding then
+			self:WallJump()
+		end
 	-- elseif k == "t" then
 		-- self:ChangeAbility("Super_Speed",not self:hasAbility("Super_Speed"))
 	elseif k == "u" then
@@ -579,17 +609,35 @@ function Player:Dash()
 		self.sounds.dash1:play()
 	end
 end
+
+function Player:WallJump()
+	if self:hasAbility("Wall_Jump") then
+		local dir = 0
+		if self.left_collision then
+			dir = -1
+		elseif self.right_collision then
+			dir = 1
+		end
+		self.isSliding = false
+		self.sounds.jump1:play()
+		self.velocity.y = -self:CalculateJumpSpeed(self.jump_power*1.5, self.gravity)
+		self.velocity.x = -self.speed*dir*1.8/1.5
+		self.wallJumped = true
+		self:ForceMove(230)
+	end
+end
+
 function Player:NormalJump()
 	if self:hasAbility("Jump") then
 		self.isGrounded = false
 		local modifier = 1
-		if self.timeFromLastGround > 0 and self:hasAbility("Powered_Jump") then
-			modifier = 1.35
-			self.sounds.jump2:play()
-			self.isPowered_jump = true
-		else
+		-- if self.timeFromLastGround > 0 and self:hasAbility("Powered_Jump") then
+			-- modifier = 1.35
+			-- self.sounds.jump2:play()
+			-- self.isPowered_jump = true
+		-- else
 			self.sounds.jump1:play()
-		end
+		-- end
 		self.velocity.y = -self:CalculateJumpSpeed(self.jump_power*modifier, self.gravity)
 		self.hasJumped = true
 	end
@@ -621,8 +669,10 @@ function Player:draw()
 					end
 				end
 				if self.dash_duration >= self.dash_duration_const*0.25 then
+					love.graphics.setLineWidth(3)
 					love.graphics.setColor(1,1,1,1)
 					love.graphics.line(self.dash_pos.x+ self.size.x/2, self.dash_pos.y+ self.size.y/2, self.position.x+ self.size.x/2, self.position.y+ self.size.y/2)
+					love.graphics.setLineWidth(1)
 				end
 			end
 			if self:hasAbility("Super_Speed") then
@@ -660,9 +710,9 @@ function Player:draw()
 			
 			love.graphics.setColor(1,1,1,1)
 			-- love.graphics.print(tostring(#self.trail_images),50,30)
-			love.graphics.print(tostring(self.left_collision),self.position.x-30,self.position.y)
-			love.graphics.print(tostring(self.right_collision),self.position.x+30,self.position.y)
-			love.graphics.print(tostring(self.velocity.y),self.position.x,self.position.y-20)
+			love.graphics.print("isGrounded : "..tostring(self.isGrounded),self.position.x-30,self.position.y)
+			love.graphics.print("isSliding : "..tostring(self.isSliding),self.position.x-30,self.position.y+15)
+			love.graphics.print("self.velocity.x : "..tostring(self.velocity.x),self.position.x-30,self.position.y+30)
 			love.graphics.setColor(1,0,0,1)
 			
 			-- local dx = self.position.x + self.size.x/2 + self.dash_direction.x * 120

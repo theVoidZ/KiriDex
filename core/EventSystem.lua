@@ -19,7 +19,7 @@ function EventSystem:init()
 	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_PoweredJump"})
 	self.game_event = self.game_event_list.Tutorial_Intro
 	
-	self.timer = 4000
+	self.timer = 10
 	
 	self.Level_Handler = CreateLevel()
 	self.Animator = CreateDeathAnimator()
@@ -31,8 +31,9 @@ function EventSystem:init()
 	-- p:ChangeAbility("Super_Speed",true)
 	-- p:ChangeAbility("Super_Jump",true)
 	-- p:ChangeAbility("Super_Dash",true)
-	p:ChangeAbility("Powered_Jump",true)
+	-- p:ChangeAbility("Powered_Jump",true)
 	p:ChangeAbility("Dash",true)
+	p:ChangeAbility("Wall_Jump",true)
 	
 end
 
