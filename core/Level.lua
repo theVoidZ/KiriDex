@@ -29,6 +29,7 @@ function Level:getSpawnPoints()
 	if self.current_level ~= 0 then
 		if self.levels[self.current_level] then
 			return self.levels[self.current_level].spawn_points[math.random(1,#self.levels[self.current_level].spawn_points)] -- Vector position
+			-- return self.levels[self.current_level].spawn_points[1] -- Vector position
 		end
 	end
 end
@@ -110,12 +111,27 @@ function Level:addLevel(path,name)
 						for a,b in pairs(v.objects) do
 							table.insert(level_info.hazards,CreateObstacle(b.x, b.y, b.width, b.height,true))
 							level_info.hazards[#level_info.hazards].isActive = false
-							print("dyeeee")
 						end
 					elseif v.name == "PlayerObjects" then
 						for a,b in pairs(v.objects) do
 							if b.name == "player_spawn" then
 								table.insert(level_info.spawn_points,Vector(b.x,b.y))
+								print(b.x,b.y,"dude waat")
+							elseif b.name == "player_checkpoint" then
+								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[1]))
+								
+								level_info.collectables[#level_info.collectables].position.x = b.x
+								level_info.collectables[#level_info.collectables].position.y = b.y
+								local func = function(id)
+									if ACTORS[id] then
+										if not ACTORS[id].isDead then
+											ACTORS[id].respawn_point.x = b.x
+											ACTORS[id].respawn_point.y = b.y
+										end
+									end
+								end
+								level_info.collectables[#level_info.collectables]:setPickFunction(func)
+								level_info.collectables[#level_info.collectables].isRespawnable = true
 							end
 						end
 					elseif v.name == "MovingPlatform" then
@@ -141,10 +157,13 @@ function Level:addLevel(path,name)
 								level_info.collectables[#level_info.collectables].position.y = b.y
 								local func = function(id)
 									if ACTORS[id] then
-										if ACTORS[id].companions[#ACTORS[id].companions] then
-											Event.game_event = Event.game_event_list.Tutorial_PoweredJump
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Nicee you got a Powered Jump",2500,20,function() ACTORS[id]:ChangeAbility("Powered_Jump",true) end)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("When you Jump the first time, just as you land Jump again!",2500,20)
+										if not ACTORS[id].isDead then
+											if ACTORS[id].companions[#ACTORS[id].companions] then
+												Event.game_event = Event.game_event_list.Tutorial_PoweredJump
+												ACTORS[id].companions[#ACTORS[id].companions]:Say("Nicee you got a Dash",2500,20)
+												ACTORS[id].companions[#ACTORS[id].companions]:Say("Just Press U to Dash!",2500,20)
+												ACTORS[id]:ChangeAbility("Dash",true)
+											end
 										end
 									end
 								end
@@ -156,21 +175,23 @@ function Level:addLevel(path,name)
 								level_info.collectables[#level_info.collectables].position.y = b.y
 								local func = function(id)
 									if ACTORS[id] then
-										Event.game_event = Event.game_event_list.Tutorial_Companion
-										ACTORS[id]:addCompanion()
-										ACTORS[id].companions[#ACTORS[id].companions].position.x = b.x
-										ACTORS[id].companions[#ACTORS[id].companions].position.y = b.y
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Oh",1000,10)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Hello there.",2000,15)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("What brings you here?",2000,20)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("You look Lost... and Confused",2000,40)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Okay, I'll Guide you through this",2000,40)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("So. Let us get going",2000,20)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Go?",2500,20)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Hmm, Looks like you're having trouble jumping",2500,20,function() ACTORS[id]:ChangeAbility("Jump",true) end)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Let me help you, Try it!",2000,20)
-										ACTORS[id].companions[#ACTORS[id].companions]:Say("Press Y to Jump",2000,20)
-										-- 
+										if not ACTORS[id].isDead then
+											Event.game_event = Event.game_event_list.Tutorial_Companion
+											ACTORS[id]:addCompanion()
+											ACTORS[id].companions[#ACTORS[id].companions].position.x = b.x
+											ACTORS[id].companions[#ACTORS[id].companions].position.y = b.y
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Oh",1000,10)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Hello there.",2000,15)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("What brings you here?",2000,20)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("You look Lost... and Confused",2000,40)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Okay, I'll Guide you through this",2000,40)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("So. Let us get going",2000,20)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Go?",2500,20)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Hmm, Looks like you're having trouble jumping",2500,20,function() ACTORS[id]:ChangeAbility("Jump",true) end)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Let me help you, Try it!",2000,20)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Press Y to Jump",2000,20)
+											-- 
+										end
 									end
 								end
 								level_info.collectables[#level_info.collectables]:setPickFunction(func)

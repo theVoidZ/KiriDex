@@ -139,10 +139,11 @@ function Player:init()
 	-- self.light_body = LightWorld:newPolygon(unpack(RectToPoly(self.position.x, self.position.y, self.size.x, self.size.y)))
 end
 
-function Player:Spawn(x, y)
-	self.respawn_point.x = x
-	self.respawn_point.y = y
-	
+function Player:Spawn(x, y, setPoint)
+	if setPoint then
+		self.respawn_point.x = x
+		self.respawn_point.y = y
+	end
 	self.position = self.respawn_point.copy
 	self.isDead = false
 	self.isRespawning = false
@@ -281,19 +282,16 @@ function Player:update(ddt)
 				
 				if self:collideAt(SOLIDS,self.position + Vector(1,0)) then
 					self.right_collision = true
-					print("RGHT HT")
 				else
 					self.right_collision = false
 				end
 				if self:collideAt(SOLIDS,self.position + Vector(-1,0)) then
 					self.left_collision = true
-					print("LEFT HT")
 				else
 					self.left_collision = false
 				end
 				
 				self.isSliding = (self.right_collision or self.left_collision)
-				print("SLDNG",self.isSliding)
 				
 				self:BetterJump(dt)
 				self:handleControls(dt)
@@ -351,6 +349,7 @@ function Player:update(ddt)
 			else
 				self.forceMoving = 0
 				self.isForcedMoving = false
+				self.wallJumped = false
 			end
 		end
 		for k = 1,#self.companions do
@@ -402,7 +401,6 @@ end
 
 function Player:handleMoving(dt)
 	local sliding_mod = 1
-	-- print("VELOCTY STARTED",self.velocity.x)
 	table.insert(self.move_trail,{x=self.position.x,y=self.position.y})
 	if #self.move_trail > self.max_move_trail then
 		table.remove(self.move_trail,1)
@@ -420,8 +418,8 @@ function Player:handleMoving(dt)
 				end
 			end)
 			
-			if self.isForcedMoving then
-				-- self.velocity.x = self.velocity.x * 0.9
+			if self.isForcedMoving and not self.wallJumped then
+				self.velocity.x = self.velocity.x * 0.9
 			end
 	end
 	if self.velocity.y ~= 0 then
@@ -432,7 +430,6 @@ function Player:handleMoving(dt)
 					self.timeFromLastGround = self.timeFromLastGround_const
 				end
 				self.isGrounded = true
-				-- print(self.isGrounded)
 				self.isPowered_jump = false
 				self.canDash = true
 				self.velocity.y = 0
@@ -453,7 +450,6 @@ function Player:handleMoving(dt)
 	if self.velocity.y >= 0 then
 		self.wallJumped = false
 	end
-	-- print("VELOCTY ENDED",self.velocity.x)
 end
 
 function Player:setMove(bool) -- set if Player can mùove
@@ -541,7 +537,6 @@ function Player:handleControls(dt)
 			self.dash_direction.y = 0
 		end
 	end
-	print("Sliding me rolling",self.willSliding)
 	self:FeatherFall()
 end
 

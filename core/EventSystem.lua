@@ -27,7 +27,14 @@ function EventSystem:init()
 	self:SelectLevel("Tutorial")
 	
 	local p = CreatePlayer()
-	p:Spawn(self.Level_Handler:getSpawnPoints().x - #ACTORS*50, self.Level_Handler:getSpawnPoints().y)
+	local lx,ly = self.Level_Handler:getSpawnPoints().x, self.Level_Handler:getSpawnPoints().y
+	p.position.x = lx
+	p.position.y = ly
+	p:Spawn(lx,ly,true)
+	
+	p.respawn_point.x = lx
+	p.respawn_point.y = ly
+	
 	-- p:ChangeAbility("Super_Speed",true)
 	-- p:ChangeAbility("Super_Jump",true)
 	-- p:ChangeAbility("Super_Dash",true)
@@ -35,6 +42,7 @@ function EventSystem:init()
 	p:ChangeAbility("Dash",true)
 	p:ChangeAbility("Wall_Jump",true)
 	
+	print(p.position.x)
 end
 
 function EventSystem:TriggerUpdate(dt)

@@ -21,7 +21,7 @@ function Collectable:init(img)
 	
 	self.collect_target = "Human" -- Human / All / Enemies
 	
-	self.pick_range = 80
+	self.pick_range = 50
 	self.hover_offset = 0
 	self.onPickUp = function(id)
 	end
