@@ -452,7 +452,7 @@ function Player:handleMoving(dt)
 			end)
 	end
 	if self.velocity.y ~= 0 then
-		self.isGrounded = false
+		-- self.isGrounded = false
 	end
 	if self.velocity.y >= 0 then
 		self.wallJumped = false
@@ -599,7 +599,7 @@ end
 
 function Player:Dash()
 	if self:hasAbility("Dash") then
-		Event:getCamera():Shake(5,100)
+		Event:getCamera():Shake(8,150)
 		self.dash_pos = self.position.copy
 		self.canDash = false
 		self.dash_duration = self.dash_duration_const

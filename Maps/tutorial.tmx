@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="346">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="377">
  <editorsettings>
   <export target="tutorial.lua" format="lua"/>
  </editorsettings>
@@ -14,7 +14,7 @@
  </layer>
  <layer id="1" name="Front" width="268" height="51">
   <data encoding="base64" compression="zstd">
-   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
+   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
   </data>
  </layer>
  <objectgroup color="#555555" id="10" name="MovingPlatform" visible="0">
@@ -96,6 +96,16 @@
     <property name="speed" type="float" value="150"/>
     <property name="sx" type="float" value="6816"/>
     <property name="sy" type="float" value="1184"/>
+   </properties>
+  </object>
+  <object id="371" x="5664" y="384" width="192" height="32">
+   <properties>
+    <property name="ex" type="float" value="6624"/>
+    <property name="ey" type="float" value="384"/>
+    <property name="isDeadly" type="bool" value="false"/>
+    <property name="speed" type="float" value="100"/>
+    <property name="sx" type="float" value="5216"/>
+    <property name="sy" type="float" value="384"/>
    </properties>
   </object>
  </objectgroup>
@@ -304,6 +314,18 @@
     <property name="directionY" type="int" value="1"/>
    </properties>
   </object>
+  <object id="363" x="7232" y="256" width="32" height="32">
+   <properties>
+    <property name="directionX" type="int" value="0"/>
+    <property name="directionY" type="int" value="-1"/>
+   </properties>
+  </object>
+  <object id="366" x="7072" y="256" width="32" height="32">
+   <properties>
+    <property name="directionX" type="int" value="0"/>
+    <property name="directionY" type="int" value="-1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#ffff00" id="5" name="Collectables" visible="0">
   <object id="50" name="strawberry" x="416" y="1056" width="32" height="32"/>
@@ -473,9 +495,9 @@
   <object id="313" x="7328" y="96" width="1120" height="32"/>
   <object id="315" x="7456" y="128" width="544" height="32"/>
   <object id="318" x="7488" y="160" width="544" height="32"/>
-  <object id="320" x="7648" y="192" width="384" height="32"/>
+  <object id="320" x="7616" y="192" width="416" height="32"/>
   <object id="321" x="7680" y="224" width="352" height="96"/>
-  <object id="322" x="7712" y="320" width="160" height="64"/>
+  <object id="322" x="7616" y="320" width="256" height="64"/>
   <object id="323" x="7872" y="320" width="128" height="32"/>
   <object id="324" x="8096" y="128" width="128" height="32"/>
   <object id="325" x="8416" y="128" width="32" height="32"/>
@@ -489,12 +511,25 @@
   <object id="334" x="8096" y="352" width="32" height="32"/>
   <object id="335" x="8192" y="480" width="32" height="32"/>
   <object id="337" x="2720" y="512" width="4384" height="32"/>
-  <object id="338" x="7648" y="384" width="128" height="32"/>
-  <object id="339" x="7616" y="416" width="64" height="64"/>
-  <object id="340" x="7040" y="448" width="576" height="32"/>
+  <object id="338" x="7616" y="384" width="160" height="32"/>
+  <object id="340" x="7008" y="416" width="96" height="64"/>
   <object id="342" x="7488" y="544" width="480" height="32"/>
   <object id="343" x="7200" y="512" width="192" height="64"/>
-  <object id="345" x="6816" y="256" width="128" height="256"/>
+  <object id="345" x="6816" y="352" width="96" height="160"/>
+  <object id="346" x="6912" y="480" width="32" height="32"/>
+  <object id="348" x="6848" y="320" width="704" height="32"/>
+  <object id="349" x="7488" y="352" width="64" height="32"/>
+  <object id="350" x="6880" y="288" width="544" height="32"/>
+  <object id="352" x="6976" y="448" width="32" height="32"/>
+  <object id="353" x="6912" y="352" width="192" height="32"/>
+  <object id="354" x="6912" y="384" width="32" height="32"/>
+  <object id="355" x="7200" y="416" width="192" height="32"/>
+  <object id="356" x="7488" y="416" width="192" height="64"/>
+  <object id="357" x="7648" y="288" width="32" height="32"/>
+  <object id="359" x="7648" y="224" width="32" height="32"/>
+  <object id="364" x="6432" y="0" width="864" height="32"/>
+  <object id="365" x="6528" y="32" width="192" height="32"/>
+  <object id="372" x="5088" y="256" width="128" height="256"/>
  </objectgroup>
  <objectgroup color="#ff0000" id="7" name="Hazards" visible="0">
   <object id="112" x="4320" y="1056" width="64" height="32"/>
@@ -505,6 +540,14 @@
   <object id="200" x="6240" y="1600" width="832" height="32"/>
   <object id="341" x="7392" y="544" width="96" height="32"/>
   <object id="344" x="7104" y="544" width="96" height="32"/>
+  <object id="361" x="7104" y="448" width="384" height="32"/>
+  <object id="362" x="7104" y="352" width="384" height="32"/>
+  <object id="367" x="7136" y="128" width="64" height="160"/>
+  <object id="368" x="6976" y="128" width="64" height="160"/>
+  <object id="373" x="5216" y="480" width="1600" height="32"/>
+  <object id="374" x="5536" y="288" width="64" height="192"/>
+  <object id="375" x="5888" y="288" width="64" height="192"/>
+  <object id="376" x="6304" y="288" width="64" height="192"/>
  </objectgroup>
  <objectgroup color="#00ff00" id="6" name="EventTriggers" visible="0">
   <object id="73" name="trigger_first_jump" x="1312" y="736" width="128" height="288"/>
@@ -515,7 +558,7 @@
   <object id="169" name="trigger_second_hazard" x="5088" y="736" width="64" height="256"/>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="PlayerObjects" visible="0" opacity="0.75">
-  <object id="176" name="player_spawn" x="1696" y="768" width="32" height="32"/>
+  <object id="176" name="player_spawn" x="6880" y="128" width="32" height="32"/>
   <object id="287" name="player_checkpoint" x="4160" y="960" width="32" height="32"/>
   <object id="289" name="player_checkpoint" x="5280" y="864" width="32" height="32"/>
   <object id="290" name="player_checkpoint" x="6272" y="864" width="32" height="32"/>
