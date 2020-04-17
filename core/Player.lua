@@ -376,8 +376,8 @@ function Player:handleDashing(dt)
 		self.trail_cd = self.trail_cd_const
 		if not self.trail_has_stopped then
 			local count = #self.trail_images
-			local x = self.dash_pos.x + self.dash_direction.x * 50 * count
-			local y = self.dash_pos.y + self.dash_direction.y * 50 * count
+			local x = self.dash_pos.x + self.dash_direction.x * 30 * count
+			local y = self.dash_pos.y + self.dash_direction.y * 30 * count
 			table.insert(self.trail_images,{x=x,y=y,fade=self.trail_fade_time_const})
 		end
 	end
@@ -678,8 +678,13 @@ function Player:draw()
 					love.graphics.setLineWidth(1)
 				end
 			end
+			-- if self:hasAbility("Super_Speed") or self.isDashing then
 			if self:hasAbility("Super_Speed") then
-				for i = 1 ,#self.move_trail,self.trail_freq do
+				local f = self.trail_freq
+				-- if self.isDashing then
+					-- f = 3
+				-- end
+				for i = 1 ,#self.move_trail,f do
 					-- love.graphics.setColor(self.color.r,self.color.g,self.color.b,1)
 					local a = (1 / (#self.move_trail) ^ 2) * 20 * i
 					love.graphics.setColor(self.color.r,self.color.g,self.color.b,a)
