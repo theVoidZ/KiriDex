@@ -35,7 +35,7 @@ function Player:init()
 	self.jump_power_const = 100
 	self.jump_power = 100
 	
-	self.sliding_speed = 100
+	self.sliding_speed = self.speed/3
 	self.willSliding = false -- bruh
 	self.isSliding = false
 	self.left_collision = false
@@ -50,7 +50,7 @@ function Player:init()
 	self.isRespawning = false
 	self.isDead = true
 	
-	self.trail_freq = 2
+	self.trail_freq = 1
 	self.move_trail = {}
 	self.max_move_trail = 20
 	
@@ -59,7 +59,7 @@ function Player:init()
 	self.isPowered_jump = false
 	
 	self.abilities = {
-						Jump = true,
+						Jump = false,
 						Powered_Jump = false,
 						Super_Speed = false,
 						Super_Jump = false,
@@ -95,7 +95,7 @@ function Player:init()
 	
 	self.color_target = self.color
 	self.colorglow_target = self.colorglow
-	self.color_timer_const = 1000
+	self.color_timer_const = 1200
 	self.color_timer = 0
 	self.isChangingColor = false
 	
@@ -134,7 +134,8 @@ function Player:init()
 	self.sounds.land1 = love.audio.newSource("sfx/Player/jumpland3.wav","stream")
 	self.sounds.death1 = love.audio.newSource("sfx/Player/CelesteDeath.wav","stream")
 	self.sounds.death2 = love.audio.newSource("sfx/Player/CelesteDeath2.wav","stream")
-	self.sounds.powerup1 = love.audio.newSource("sfx/Player/Powerup10.wav","stream")
+	self.sounds.powerup1 = love.audio.newSource("sfx/Player/CelesteRevive.wav","stream")
+	-- self.sounds.powerup1 = love.audio.newSource("sfx/Player/Powerup10.wav","stream")
 	---- Lighting
 	-- self.light_body = LightWorld:newPolygon(unpack(RectToPoly(self.position.x, self.position.y, self.size.x, self.size.y)))
 end
@@ -164,6 +165,7 @@ function Player:ChangeAbility(name,bool)
 			self.speed = self.speed_const
 			
 		end
+		self.sliding_speed = self.speed/3
 	end
 	if name == "Super_Jump" then
 		if bool then
@@ -198,6 +200,8 @@ function Player:GenerateRandomColor(isTarget)
 		self.colorglow_target = {r=(c[1]+100)/255,g=(c[2]+100)/255,b=(c[3]+100)/255}
 		self.color_timer = self.color_timer_const
 		self.isChangingColor = true
+		self.sounds.powerup1:stop()
+		self.sounds.powerup1:play()
 	else
 		self.color = {r=(c[1])/255,g=(c[2])/255,b=(c[3])/255}
 		self.colorglow = {r=(c[1]+100)/255,g=(c[2]+100)/255,b=(c[3]+100)/255}
@@ -272,7 +276,7 @@ function Player:update(ddt)
 					self.isChangingColor = false
 					self.color = self.color_target
 					self.colorglow = self.colorglow_target
-					self.sounds.powerup1:play()
+					-- self.sounds.powerup1:play()
 				end
 			end
 			if not self.isDashing  then
@@ -299,7 +303,7 @@ function Player:update(ddt)
 				-- if not self.isGrounded or self.velocity.x ~= 0 then
 				
 				local sliding_mod = 1
-				if self.willSliding then
+				if self.willSliding and self:hasAbility("Wall_Jump") then
 					sliding_mod = 0.1
 				end
 				
@@ -446,6 +450,9 @@ function Player:handleMoving(dt)
 				end
 			end
 			end)
+	end
+	if self.velocity.y ~= 0 then
+		self.isGrounded = false
 	end
 	if self.velocity.y >= 0 then
 		self.wallJumped = false
@@ -616,7 +623,7 @@ function Player:WallJump()
 		self.isSliding = false
 		self.sounds.jump1:play()
 		self.velocity.y = -self:CalculateJumpSpeed(self.jump_power*1.5, self.gravity)
-		self.velocity.x = -self.speed*dir*1.8/1.5
+		self.velocity.x = -self.speed*dir/1.5
 		self.wallJumped = true
 		self:ForceMove(230)
 	end
@@ -699,15 +706,26 @@ function Player:draw()
 					glowShape(self.color_target.r,self.color_target.g,self.color_target.b,"circle",7,self.position.x+ox+self.size.x/2,self.position.y+oy+self.size.y/2,self.color_radius*ratio)
 				else
 					local ratio = self.color_timer/self.color_timer_const * 4/3
-					glowShape(self.color_target.r,self.color_target.g,self.color_target.b,"circle",7,self.position.x+ox+self.size.x/2,self.position.y+oy+self.size.y/2,self.color_radius*ratio)
+					-- glowShape(self.color_target.r,self.color_target.g,self.color_target.b,"circle",7,self.position.x+ox+self.size.x/2,self.position.y+oy+self.size.y/2,self.color_radius*ratio)
+					-- for e = 1,3 do
+						for k = 1,8 do
+							local ang = math.pi/4*k
+							local x = self.position.x+ox+self.size.x/2 + math.cos(ang) * (self.color_radius*ratio)
+							local y = self.position.y+oy+self.size.y/2 + math.sin(ang) * (self.color_radius*ratio)
+							love.graphics.setColor(self.color_target.r,self.color_target.g,self.color_target.b,0.7)
+							love.graphics.circle("fill",x,y,12)
+							love.graphics.setColor(0,0,0,1)
+							love.graphics.circle("line", x, y, 12)
+						end
+					-- end
 				end
 			end
 			
 			love.graphics.setColor(1,1,1,1)
 			-- love.graphics.print(tostring(#self.trail_images),50,30)
-			love.graphics.print("isGrounded : "..tostring(self.isGrounded),self.position.x-30,self.position.y)
-			love.graphics.print("isSliding : "..tostring(self.isSliding),self.position.x-30,self.position.y+15)
-			love.graphics.print("self.velocity.x : "..tostring(self.velocity.x),self.position.x-30,self.position.y+30)
+			-- love.graphics.print("isGrounded : "..tostring(self.isGrounded),self.position.x-30,self.position.y)
+			-- love.graphics.print("isSliding : "..tostring(self.isSliding),self.position.x-30,self.position.y+15)
+			-- love.graphics.print("self.velocity.x : "..tostring(self.velocity.x),self.position.x-30,self.position.y+30)
 			love.graphics.setColor(1,0,0,1)
 			
 			-- local dx = self.position.x + self.size.x/2 + self.dash_direction.x * 120

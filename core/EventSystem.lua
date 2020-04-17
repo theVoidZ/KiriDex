@@ -16,11 +16,13 @@ function EventSystem:init()
 	self.camera = gamera.new(0,0,1280,640)
 	self.camera:setWindow(0,0,WIDTH,HEIGHT)
 	
-	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_PoweredJump"})
+	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash"})
 	self.game_event = self.game_event_list.Tutorial_Intro
 	
 	self.timer = 10
-	
+end
+
+function EventSystem:FirstInits()
 	self.Level_Handler = CreateLevel()
 	self.Animator = CreateDeathAnimator()
 	self:addLevel("Maps/tutorial.lua","Tutorial")
@@ -40,9 +42,10 @@ function EventSystem:init()
 	-- p:ChangeAbility("Super_Dash",true)
 	-- p:ChangeAbility("Powered_Jump",true)
 	p:ChangeAbility("Dash",true)
-	p:ChangeAbility("Wall_Jump",true)
+	p:ChangeAbility("Jump",true)
+	-- p:ChangeAbility("Wall_Jump",true)
 	
-	print(p.position.x)
+	-- print(p.position.x)
 end
 
 function EventSystem:TriggerUpdate(dt)
@@ -119,30 +122,32 @@ function EventSystem:addLevel(path,name)
 end
 
 function EventSystem:update(dt)
-	if self.timer > 0 then
-		self.timer = self.timer - 1000*dt
-	else
-		self.timer = 0
-		if self.game_event == self.game_event_list.Tutorial_Intro then
-			self.game_event = self.game_event_list.Tutorial_Standby
-			self.timer = 800
-		elseif self.game_event == self.game_event_list.Tutorial_Standby then
-			self.game_event = self.game_event_list.Tutorial_onGoing
-			for k,v in pairs(ACTORS) do
-				if v then
-					ACTORS[k]:setMove(true)
+	if self.game_state == self.game_state_list.PLAYING then
+		if self.timer > 0 then
+			self.timer = self.timer - 1000*dt
+		else
+			self.timer = 0
+			if self.game_event == self.game_event_list.Tutorial_Intro then
+				self.game_event = self.game_event_list.Tutorial_Standby
+				self.timer = 800
+			elseif self.game_event == self.game_event_list.Tutorial_Standby then
+				self.game_event = self.game_event_list.Tutorial_onGoing
+				for k,v in pairs(ACTORS) do
+					if v then
+						ACTORS[k]:setMove(true)
+					end
 				end
 			end
 		end
-	end
-	self.camera:update(dt)
-	self:TriggerUpdate(dt)
-	
-	self.Level_Handler:update(dt)
-	for k,v in pairs(ACTORS) do
-		if v then
-			if v.isHuman then
-				v:MakeCameraFollow(self.camera)
+		self.camera:update(dt)
+		self:TriggerUpdate(dt)
+		
+		self.Level_Handler:update(dt)
+		for k,v in pairs(ACTORS) do
+			if v then
+				if v.isHuman then
+					v:MakeCameraFollow(self.camera)
+				end
 			end
 		end
 	end

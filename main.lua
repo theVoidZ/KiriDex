@@ -154,6 +154,7 @@ function love.draw()
 end
 
 function FirstInits()
+	Event:FirstInits()
 	-- LightWorld = Light({
 		-- ambient = {55/255,55/255,55/255},         --How dark
 		-- refractionStrength = 32.0,

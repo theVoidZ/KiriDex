@@ -151,7 +151,7 @@ function Level:addLevel(path,name)
 						end
 					elseif v.name == "Collectables" then
 						for a,b in pairs(v.objects) do
-							if b.name == "powered_jump" then
+							if b.name == "dash" then
 								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[1]))
 								level_info.collectables[#level_info.collectables].position.x = b.x
 								level_info.collectables[#level_info.collectables].position.y = b.y
@@ -159,7 +159,7 @@ function Level:addLevel(path,name)
 									if ACTORS[id] then
 										if not ACTORS[id].isDead then
 											if ACTORS[id].companions[#ACTORS[id].companions] then
-												Event.game_event = Event.game_event_list.Tutorial_PoweredJump
+												Event.game_event = Event.game_event_list.Tutorial_Dash
 												ACTORS[id].companions[#ACTORS[id].companions]:Say("Nicee you got a Dash",2500,20)
 												ACTORS[id].companions[#ACTORS[id].companions]:Say("Just Press U to Dash!",2500,20)
 												ACTORS[id]:ChangeAbility("Dash",true)
