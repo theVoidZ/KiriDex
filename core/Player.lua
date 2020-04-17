@@ -396,8 +396,8 @@ function Player:handleDashing(dt)
 		-- self.velocity.x = self.dash_power * self.look_direction
 		-- self.velocity.y = 0
 		
-		self.velocity.x = self.dash_power * self.dash_direction.x * math.cos(self.dash_direction.angle+math.pi)
-		self.velocity.y = self.dash_power * self.dash_direction.y * math.sin(self.dash_direction.angle+math.pi)
+		self.velocity.x = self.dash_power * self.dash_direction.x
+		self.velocity.y = self.dash_power * self.dash_direction.y
 	else
 		self:EndDash()
 	end
