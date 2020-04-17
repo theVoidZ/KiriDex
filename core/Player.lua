@@ -243,6 +243,7 @@ function Player:onDeath()
 				-- self.companions[k]:onDeath()
 			-- end
 		-- end
+		self:EndDash()
 	end
 end
 
@@ -395,9 +396,9 @@ function Player:handleDashing(dt)
 		self.dash_duration = self.dash_duration - 1000*dt
 		-- self.velocity.x = self.dash_power * self.look_direction
 		-- self.velocity.y = 0
-		
-		self.velocity.x = self.dash_power * self.dash_direction.x
-		self.velocity.y = self.dash_power * self.dash_direction.y
+		print(self.dash_direction.length)
+		self.velocity.x = self.dash_power * self.dash_direction.x * 1 / self.dash_direction.length
+		self.velocity.y = self.dash_power * self.dash_direction.y * 1 / self.dash_direction.length
 	else
 		self:EndDash()
 	end
