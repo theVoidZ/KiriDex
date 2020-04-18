@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 13,
-  nextobjectid = 597,
+  nextobjectid = 599,
   properties = {
     ["darkness"] = 0.10000000000000001
   },
@@ -6537,6 +6537,32 @@ return {
           shape = "rectangle",
           x = 96,
           y = 1152,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 597,
+          name = "player_checkpoint",
+          type = "",
+          shape = "rectangle",
+          x = 2496,
+          y = 288,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 598,
+          name = "player_checkpoint",
+          type = "",
+          shape = "rectangle",
+          x = 1536,
+          y = 1376,
           width = 32,
           height = 32,
           rotation = 0,
