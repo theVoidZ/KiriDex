@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="599">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="611">
  <editorsettings>
   <export target="tutorial.lua" format="lua"/>
  </editorsettings>
@@ -98,7 +98,7 @@
     <property name="sy" type="float" value="1184"/>
    </properties>
   </object>
-  <object id="371" x="5664" y="384" width="192" height="32">
+  <object id="371" x="6496" y="384" width="192" height="32">
    <properties>
     <property name="ex" type="float" value="6624"/>
     <property name="ey" type="float" value="384"/>
@@ -859,7 +859,7 @@
   <object id="487" x="1120" y="1504" width="160" height="128"/>
   <object id="488" x="1440" y="1504" width="384" height="128"/>
   <object id="489" x="1824" y="1344" width="32" height="192"/>
-  <object id="490" x="1536" y="1440" width="288" height="64"/>
+  <object id="490" x="1537" y="1440" width="288" height="64"/>
   <object id="491" x="1472" y="1472" width="64" height="32"/>
   <object id="492" x="1600" y="1408" width="224" height="32"/>
   <object id="493" x="1504" y="1152" width="256" height="64"/>
@@ -978,13 +978,22 @@
   <object id="426" x="1824" y="1600" width="160" height="32"/>
   <object id="427" x="3104" y="1600" width="960" height="32"/>
  </objectgroup>
- <objectgroup color="#00ff00" id="6" name="EventTriggers" visible="0">
+ <objectgroup color="#00ff00" id="6" name="EventTriggers">
   <object id="73" name="trigger_first_jump" x="1312" y="736" width="128" height="288"/>
   <object id="74" name="trigger_long_jump" x="2496" y="672" width="224" height="288"/>
   <object id="75" name="trigger_long_jump_end" x="3264" y="608" width="64" height="256"/>
   <object id="164" name="trigger_first_trampoline" x="3392" y="640" width="64" height="288"/>
   <object id="168" name="trigger_first_hazard" x="4032" y="672" width="64" height="256"/>
   <object id="169" name="trigger_second_hazard" x="5088" y="736" width="64" height="256"/>
+  <object id="599" name="trigger_first_platform" x="6176" y="704" width="96" height="192"/>
+  <object id="601" name="trigger_jump_fail" x="8064" y="704" width="128" height="96"/>
+  <object id="602" name="trigger_first_checkpoint" x="7520" y="672" width="128" height="224"/>
+  <object id="603" name="trigger_dash_remind" x="7840" y="352" width="96" height="160"/>
+  <object id="604" name="trigger_dash_tip_diag" x="6816" y="32" width="128" height="320"/>
+  <object id="607" name="trigger_diff_up" x="5088" y="64" width="128" height="320"/>
+  <object id="608" name="trigger_first_fragile" x="2464" y="96" width="192" height="256"/>
+  <object id="609" name="trigger_level_end_chat" x="4064" y="1184" width="160" height="320"/>
+  <object id="610" name="trigger_next_level" x="4288" y="1632" width="128" height="96"/>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="PlayerObjects" visible="0" opacity="0.75">
   <object id="591" name="player_spawn" x="1664" y="800" width="32" height="32"/>
@@ -994,6 +1003,6 @@
   <object id="595" name="player_checkpoint" x="1568" y="192" width="32" height="32"/>
   <object id="596" name="player_checkpoint" x="96" y="1152" width="32" height="32"/>
   <object id="597" name="player_checkpoint" x="2496" y="288" width="32" height="32"/>
-  <object id="598" name="player_checkpoint" x="1536" y="1376" width="32" height="32"/>
+  <object id="598" name="player_checkpoint" x="1537" y="1376" width="32" height="32"/>
  </objectgroup>
 </map>

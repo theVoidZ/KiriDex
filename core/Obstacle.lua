@@ -72,7 +72,7 @@ function Obstacle:draw()
 				love.graphics.setColor(0.85,0.85,0.9,a)
 				love.graphics.rectangle("line",self.position.x,self.position.y,self.size.x,self.size.y)
 				
-				love.graphics.print(tostring(self.willDie),self.position.x,self.position.y)
+				-- love.graphics.print(tostring(self.willDie),self.position.x,self.position.y)
 			end
 		end
 	end

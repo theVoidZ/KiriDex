@@ -69,7 +69,7 @@ function EventSystem:TriggerUpdate(dt)
 								elseif v.name == "trigger_long_jump" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
 										level.triggers[k].isTriggered = true
-										ACTORS[1].companions[1]:Say("You can hold Y to Jump longer",1500,10)
+										ACTORS[1].companions[1]:Say("You can hold Y to Jump Higher",1500,10)
 									end
 								elseif v.name == "trigger_long_jump_end" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
@@ -90,6 +90,46 @@ function EventSystem:TriggerUpdate(dt)
 									if self.game_event == self.game_event_list.Tutorial_Companion then
 										level.triggers[k].isTriggered = true
 										ACTORS[1].companions[1]:Say("This one looks hard",1500,20)
+									end
+								elseif v.name == "trigger_first_platform" then
+									if self.game_event == self.game_event_list.Tutorial_Companion then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("You got some platforming to do",1500,20)
+									end
+								elseif v.name == "trigger_first_checkpoint" then
+									if self.game_event == self.game_event_list.Tutorial_Companion then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("Checkpoints Nice",1500,20)
+									end
+								elseif v.name == "trigger_jump_fail" then
+									if self.game_event ~= self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("Looks lke you cant reach it for now",2000,20)
+									end
+								elseif v.name == "trigger_dash_remind" then
+									if self.game_event == self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("Don't forget you Dash, Press U",1500,20)
+									end
+								elseif v.name == "trigger_dash_tip_diag" then
+									if self.game_event == self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("You can Dash Diagonally, even Mid-Air, Press Q+W then U",1500,20)
+									end
+								elseif v.name == "trigger_diff_up" then
+									if self.game_event == self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("It's kinda getting harder, dont you think?",1500,20)
+									end
+								elseif v.name == "trigger_first_fragile" then
+									if self.game_event == self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("These platforms will disappear when you stand on them",2500,20)
+									end
+								elseif v.name == "trigger_level_end_chat" then
+									if self.game_event == self.game_event_list.Tutorial_Dash then
+										level.triggers[k].isTriggered = true
+										ACTORS[1].companions[1]:Say("oof, that was. close.",1500,80)
 									end
 								end
 							end

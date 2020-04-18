@@ -193,7 +193,7 @@ function Companion:draw()
 		love.graphics.polygon("line",x1,y1,x2,y2,x3,y3)
 		love.graphics.setStencilTest()
 		
-		love.graphics.setColor(1,1,1,a)
+		love.graphics.setColor(1,1,1,a*1.5)
 		love.graphics.printf(self.text_bulb[i].text,cx-(rx-40),cy-(ry-30) - 15*(#w-1)+15,130*2)
 	end
 	-- end
