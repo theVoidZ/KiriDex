@@ -32,6 +32,7 @@ function Player:init()
 	
 	self.speed_const = 350
 	self.speed = 350
+	self.max_fall_speed = 500
 	self.jump_power_const = 100
 	self.jump_power = 100
 	
@@ -310,6 +311,9 @@ function Player:update(ddt)
 				
 				if not self:collideAt(SOLIDS,self.position + Vector(0,1)) then
 					self.velocity.y = self.velocity.y + self.gravity*dt * self.gravity_scale
+					if self.velocity.y > 0 then
+						self.velocity.y = math.min(self.velocity.y, self.max_fall_speed)
+					end
 					if self.isSliding and self.velocity.y > 0 then
 						self.velocity.y = math.max(self.velocity.y * sliding_mod,self.sliding_speed)
 					end
@@ -396,7 +400,7 @@ function Player:handleDashing(dt)
 		self.dash_duration = self.dash_duration - 1000*dt
 		-- self.velocity.x = self.dash_power * self.look_direction
 		-- self.velocity.y = 0
-		print(self.dash_direction.length)
+		print(self.dash_direction)
 		self.velocity.x = self.dash_power * self.dash_direction.x * 1 / self.dash_direction.length
 		self.velocity.y = self.dash_power * self.dash_direction.y * 1 / self.dash_direction.length
 	else
@@ -416,8 +420,17 @@ function Player:handleMoving(dt)
 					if side == self.dash_direction.x then
 						if self.dash_direction.y == 0 then
 							self:EndDash()
+							if self.willBounce then
+								self.dash_direction.x = - self.dash_direction.x
+								self:Dash(true)
+							end
 						else
 							self.trail_has_stopped = true
+							if self.willBounce then
+								self:EndDash()
+								self.dash_direction.x = -self.dash_direction.x
+								self:Dash(true)
+							end
 						end
 					end
 				end
@@ -445,8 +458,17 @@ function Player:handleMoving(dt)
 				if side == self.dash_direction.y then
 					if self.dash_direction.x == 0 then
 						self:EndDash()
+						if self.willBounce then
+							self.dash_direction.y = - self.dash_direction.y
+							self:Dash(true)
+						end
 					else
 						self.trail_has_stopped = true
+						if self.willBounce then
+							self:EndDash()
+							self.dash_direction.y = - self.dash_direction.y
+							self:Dash(true)
+						end
 					end
 				end
 			end
@@ -598,8 +620,9 @@ function Player:EndDash()
 	self.trail_cd = 0
 end
 
-function Player:Dash()
+function Player:Dash(forced)
 	if self:hasAbility("Dash") then
+		self.willBounce = not forced
 		Event:getCamera():Shake(8,150)
 		self.dash_pos = self.position.copy
 		self.canDash = false
