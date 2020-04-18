@@ -90,6 +90,8 @@ function Actor:collideAt(tab,pos)
 				if doOverlap(pos.x,pos.y,pos.x+self.size.x,pos.y+self.size.y,v.position.x,v.position.y,v.position.x+v.size.x,v.position.y+v.size.y,true) then
 					if v.isDeadly then
 						self:onDeadlyCollision()
+					elseif v.isFragile then
+						v:onCollide(self.index)
 					end
 					return true
 				end

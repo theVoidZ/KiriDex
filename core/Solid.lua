@@ -17,6 +17,7 @@ end
 function Solid:post_init()
 	
 end
+
 function Solid:init()
 	
 end

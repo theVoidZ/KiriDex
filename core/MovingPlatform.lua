@@ -7,6 +7,7 @@ function MovingPlatform:new()
 	setmetatable(t,MovingPlatform)
 	return t
 end
+
 function MovingPlatform:init(x,y,w,h,deadly,rangeX,rangeY) -- range = {min,max}
 	self.isActive = true
 	self.Collidable = true
@@ -66,7 +67,6 @@ function MovingPlatform:draw()
 		-- love.graphics.print(self.index,self.position.x+self.size.x/2,self.position.y+self.size.y/2-8)
 	end
 end
-
 function CreateMovingPlatform(x,y,w,h,deadly,rangeX,rangeY)
 	local obj = MovingPlatform:new()
 	obj:init(x,y,w,h,deadly,rangeX,rangeY)

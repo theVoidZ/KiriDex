@@ -128,13 +128,13 @@ function Player:init()
 	
 	------------ Sounds
 	self.sounds = {}
-	self.sounds.jump1 = love.audio.newSource("sfx/Player/jump3.wav","stream")
-	self.sounds.jump2 = love.audio.newSource("sfx/Player/jump2.wav","stream")
-	self.sounds.dash1 = love.audio.newSource("sfx/Player/dash2.wav","stream")
+	self.sounds.jump1 = love.audio.newSource("sfx/Player/jump.wav","stream")
+	self.sounds.jump2 = love.audio.newSource("sfx/Player/jump.wav","stream")
+	self.sounds.dash1 = love.audio.newSource("sfx/Player/dash_red_right.wav","stream")
 	self.sounds.land1 = love.audio.newSource("sfx/Player/jumpland3.wav","stream")
 	self.sounds.death1 = love.audio.newSource("sfx/Player/CelesteDeath.wav","stream")
-	self.sounds.death2 = love.audio.newSource("sfx/Player/CelesteDeath2.wav","stream")
-	self.sounds.powerup1 = love.audio.newSource("sfx/Player/CelesteRevive.wav","stream")
+	self.sounds.death2 = love.audio.newSource("sfx/Player/death.wav","stream")
+	self.sounds.powerup1 = love.audio.newSource("sfx/Player/revive.wav","stream")
 	-- self.sounds.powerup1 = love.audio.newSource("sfx/Player/Powerup10.wav","stream")
 	---- Lighting
 	-- self.light_body = LightWorld:newPolygon(unpack(RectToPoly(self.position.x, self.position.y, self.size.x, self.size.y)))

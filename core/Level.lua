@@ -91,6 +91,7 @@ function Level:addLevel(path,name)
 	level_info.triggers = {}
 	level_info.hazards = {}
 	level_info.trampolines = {}
+	-- level_info.fragileWalls = {}
 	level_info.movingPlatforms = {}
 	if info then
 		local data = require((string.gsub(path,".lua","")))
@@ -107,6 +108,11 @@ function Level:addLevel(path,name)
 							table.insert(level_info.objects,CreateObstacle(b.x, b.y, b.width, b.height))
 							level_info.objects[#level_info.objects].isActive = false
 						end
+					elseif v.name == "FragilePlatforms" then
+						for a,b in pairs(v.objects) do
+							table.insert(level_info.objects,CreateObstacle(b.x, b.y, b.width, b.height, false, true))
+							level_info.objects[#level_info.objects].isActive = false
+						end
 					elseif v.name == "Hazards" then
 						for a,b in pairs(v.objects) do
 							table.insert(level_info.hazards,CreateObstacle(b.x, b.y, b.width, b.height,true))
@@ -116,7 +122,6 @@ function Level:addLevel(path,name)
 						for a,b in pairs(v.objects) do
 							if b.name == "player_spawn" then
 								table.insert(level_info.spawn_points,Vector(b.x,b.y))
-								print(b.x,b.y,"dude waat")
 							elseif b.name == "player_checkpoint" then
 								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[1]))
 								
@@ -133,6 +138,11 @@ function Level:addLevel(path,name)
 								level_info.collectables[#level_info.collectables]:setPickFunction(func)
 								level_info.collectables[#level_info.collectables].isRespawnable = true
 							end
+						end
+					elseif v.name == "AutoMovingPlatforms" then
+						for a,b in pairs(v.objects) do
+							table.insert(level_info.movingPlatforms,CreateMovingPlatform(b.x, b.y, b.width, b.height,b.properties.isDeadly,{b.properties.sx,b.properties.ex},{b.properties.sy,b.properties.ey}))
+							level_info.movingPlatforms[#level_info.movingPlatforms].speed = b.properties.speed or 200
 						end
 					elseif v.name == "MovingPlatform" then
 						for a,b in pairs(v.objects) do
