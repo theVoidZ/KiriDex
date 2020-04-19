@@ -46,7 +46,8 @@ GAMESTATE = "MAIN"
 
 ---------------------------
 function love.load()
-	love.graphics.setBackgroundColor(48/255,10/255,36/255)
+	-- love.graphics.setBackgroundColor(48/255,10/255,36/255)
+	love.graphics.setBackgroundColor(6/255,109/255,152/255)
 	------------------------- CONSTANTS
 	mainFont = love.graphics.newImageFont("fonts/font.png", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\"|$_°_")
 	love.graphics.setFont(mainFont)

@@ -261,6 +261,11 @@ function EventSystem:draw()
 		
 	elseif self:getGameState() == "MAIN" then
 		love.graphics.setColor(1,1,1,1)
+		for k = 1, 32 do
+			for v = 1, 32 do
+				love.graphics.rectangle("line",(k-1)*32,(v-1)*32,32,32)
+			end
+		end
 		love.graphics.draw(PLAY_IMAGE,WIDTH/2-200,HEIGHT/2-50)
 	elseif self:getGameState() == "MENU" then
 	end
