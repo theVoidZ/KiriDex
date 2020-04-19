@@ -19,7 +19,7 @@ function EventSystem:init()
 	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash","Level1_start","Level2_start"})
 	self.game_event = self.game_event_list.Tutorial_Intro
 	
-	self.timer = 10
+	self.timer = 2000
 end
 
 function EventSystem:FirstInits()
@@ -203,7 +203,7 @@ function EventSystem:update(dt)
 			self.timer = 0
 			if self.game_event == self.game_event_list.Tutorial_Intro then
 				self.game_event = self.game_event_list.Tutorial_Standby
-				self.timer = 800
+				self.timer = 1500
 			elseif self.game_event == self.game_event_list.Tutorial_Standby then
 				self.game_event = self.game_event_list.Tutorial_onGoing
 				for k,v in pairs(ACTORS) do

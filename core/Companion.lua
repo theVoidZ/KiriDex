@@ -155,12 +155,13 @@ function Companion:draw()
 	local i = 1
 	if self.text_bulb[i] then
 		local a = 0.8
+		local look = 1 -- self.look_direction
 		love.graphics.setColor(0,0,0,a)
-		local x1 = self.position.x - 15 * self.look_direction
+		local x1 = self.position.x - 15 * look
 		local y1 = self.position.y - 15 + self.hover_offset
-		local x2 = x1 - 20 * self.look_direction
+		local x2 = x1 - 20 * look
 		local y2 = y1 - 25
-		local x3 = x1 - 50 * self.look_direction
+		local x3 = x1 - 50 * look
 		local y3 = y1 - 25
 		
 		local s,w = love.graphics.getFont():getWrap(self.text_bulb[i].full_text,130*2)
@@ -169,14 +170,14 @@ function Companion:draw()
 			adds = (#w-4)*15
 		end
 		
-		local cx = x1 - 75 * self.look_direction
+		local cx = x1 - 75 * look
 		local cy = y1-75-adds/2
 		
 		local rx = 170
 		local ry = 60+adds/2
 		
 		
-		love.graphics.setColor(1,1,1,a)
+		love.graphics.setColor(0.3,0.3,0.3,a)
 		love.graphics.ellipse("fill",cx,cy,rx,ry)
 		love.graphics.setColor(0,0,0,a)
 		love.graphics.ellipse("line",cx,cy,rx,ry)
@@ -187,7 +188,7 @@ function Companion:draw()
 		love.graphics.stencil(func)
 		love.graphics.setStencilTest("equal",0)
 		
-		love.graphics.setColor(1,1,1,a)
+		love.graphics.setColor(0.3,0.3,0.3,a)
 		love.graphics.polygon("fill",x1,y1,x2,y2,x3,y3)
 		love.graphics.setColor(0,0,0,a)
 		love.graphics.polygon("line",x1,y1,x2,y2,x3,y3)
