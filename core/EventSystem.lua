@@ -28,6 +28,10 @@ function EventSystem:FirstInits()
 	self:addLevel("Maps/tutorial.lua","Tutorial")
 	self:addLevel("Maps/Level1.lua","Level1")
 	self:addLevel("Maps/Level2.lua","Level2")
+	
+	
+	self:SelectLevel("Level1")
+	self:SelectLevel("Level2")
 	self:SelectLevel("Tutorial")
 	
 	local p = CreatePlayer()
