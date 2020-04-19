@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="48" height="61" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="112">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="48" height="61" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="113">
  <editorsettings>
   <export target="Level1.lua" format="lua"/>
  </editorsettings>
@@ -17,10 +17,10 @@
    KLUv/WDALG0MAMQCBAAAAAQEBAQEBAQEBAQEBAQEBAQEBA0NAAQEBAQADQQEBA0EDQQEBAQEBA2A86igTQDgAg1QBQASIBGYCDSCBCloIAKdQCaYhFIABcYwhA3dAJXM4SJpn8etUKgAImZC+4jSdnZYw2GYBBdMoudboEzQlBk0RDfPf7SEDEyQVeou1s4nZG2W/9P8yOyRP6wOwyfM7wF9cv+8G44NIPyE8nuAn9yf74ZjQ4zC0Htg5y2FB6xlwLpPz57CML1dd2CC/jH4hYz1YazXAEq1z0gMs+9JTsDU8x3sKGlJrtLrQeio3JvIPEwYz94LMeOyuAVCyjAB1wA5lIo4IEc5+oiPP/g4/IKuQHbR4SGV/+Hgod8JdKTyXMzxcZRakEj2pGK4RD7nN3XFHrqN38+OnoI2e1gjGx2ggzyJPIk/NBM3HxXnO3QWb586egv6Kw/r+C5c9PbCOt8LJ724GJf/xUivF67nuHDi2wvrfC+c9OJiXP4XI72+OJPPxZPeYsWGFlqLdSgxnQWwzhoMzD4=
   </data>
  </layer>
- <objectgroup color="#ffff00" id="9" name="Collectables">
+ <objectgroup color="#ffff00" id="9" name="Collectables" visible="0">
   <object id="109" name="super_speed" x="1440" y="992" width="32" height="32"/>
  </objectgroup>
- <objectgroup color="#00ffff" id="7" name="FragilePlatforms">
+ <objectgroup color="#00ffff" id="7" name="FragilePlatforms" visible="0">
   <object id="92" x="1376" y="1856" width="128" height="32"/>
   <object id="93" x="1152" y="1696" width="128" height="32"/>
   <object id="94" x="1376" y="1536" width="128" height="32"/>
@@ -28,7 +28,7 @@
   <object id="96" x="1376" y="1216" width="128" height="32"/>
   <object id="97" x="1152" y="1120" width="128" height="32"/>
  </objectgroup>
- <objectgroup color="#000000" id="3" name="Walls" opacity="0.75">
+ <objectgroup color="#000000" id="3" name="Walls" visible="0" opacity="0.75">
   <object id="5" x="384" y="0" width="224" height="512"/>
   <object id="6" x="416" y="512" width="192" height="32"/>
   <object id="7" x="448" y="544" width="160" height="160"/>
@@ -78,10 +78,10 @@
   <object id="99" x="1504" y="1056" width="32" height="864"/>
   <object id="100" x="1312" y="1024" width="224" height="32"/>
  </objectgroup>
- <objectgroup color="#00ff00" id="10" name="EventTriggers">
+ <objectgroup color="#00ff00" id="10" name="EventTriggers" visible="0">
   <object id="110" name="trigger_next_level2" x="1536" y="960" width="192" height="64"/>
  </objectgroup>
- <objectgroup color="#ff0000" id="5" name="Hazards">
+ <objectgroup color="#ff0000" id="5" name="Hazards" visible="0">
   <object id="14" x="352" y="800" width="128" height="32"/>
   <object id="15" x="160" y="1024" width="128" height="32"/>
   <object id="16" x="352" y="1248" width="128" height="32"/>
@@ -93,7 +93,7 @@
   <object id="57" x="672" y="576" width="288" height="32"/>
   <object id="83" x="160" y="1568" width="160" height="32"/>
  </objectgroup>
- <objectgroup color="#ff5500" id="6" name="AutoMovingPlatforms">
+ <objectgroup color="#ff5500" id="6" name="AutoMovingPlatforms" visible="0">
   <object id="34" x="640" y="1424" width="32" height="32">
    <properties>
     <property name="ex" type="float" value="864"/>
@@ -205,7 +205,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#aa5500" id="8" name="Trampolines">
+ <objectgroup color="#aa5500" id="8" name="Trampolines" visible="0">
   <object id="104" x="1472" y="896" width="32" height="32">
    <properties>
     <property name="directionX" type="int" value="-1"/>
@@ -231,11 +231,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#5500ff" id="4" name="PlayerObjects">
+ <objectgroup color="#5500ff" id="4" name="PlayerObjects" visible="0">
   <object id="36" name="player_checkpoint" x="672" y="1792" width="32" height="32"/>
   <object id="70" name="player_checkpoint" x="864" y="768" width="32" height="32"/>
   <object id="71" name="player_checkpoint" x="1088" y="64" width="32" height="32"/>
-  <object id="98" name="player_spawn" x="1312" y="864" width="32" height="32"/>
   <object id="108" name="player_checkpoint" x="1184" y="1888" width="32" height="32"/>
+  <object id="112" name="player_spawn" x="288" y="0" width="32" height="32"/>
  </objectgroup>
 </map>

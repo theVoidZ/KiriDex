@@ -89,8 +89,8 @@ function Obstacle:draw()
 				
 			end
 		end
-		love.graphics.setColor(0.85,0.85,0.9,1)
-		love.graphics.print(tostring(self.respawn_time),self.position.x,self.position.y)
+		-- love.graphics.setColor(0.85,0.85,0.9,1)
+		-- love.graphics.print(tostring(self.respawn_time),self.position.x,self.position.y)
 	end
 end
 
