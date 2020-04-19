@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 13,
-  nextobjectid = 611,
+  nextobjectid = 612,
   properties = {
     ["darkness"] = 0.10000000000000001
   },
@@ -6576,25 +6576,12 @@ return {
       draworder = "topdown",
       id = 3,
       name = "PlayerObjects",
-      visible = false,
+      visible = true,
       opacity = 0.75,
       offsetx = 0,
       offsety = 0,
       properties = {},
       objects = {
-        {
-          id = 591,
-          name = "player_spawn",
-          type = "",
-          shape = "rectangle",
-          x = 1664,
-          y = 800,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
         {
           id = 592,
           name = "player_checkpoint",
@@ -6680,6 +6667,19 @@ return {
           shape = "rectangle",
           x = 1537,
           y = 1376,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 611,
+          name = "player_spawn",
+          type = "",
+          shape = "rectangle",
+          x = 4256,
+          y = 1344,
           width = 32,
           height = 32,
           rotation = 0,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="611">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="613">
  <editorsettings>
   <export target="tutorial.lua" format="lua"/>
  </editorsettings>
@@ -109,7 +109,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ff5500" id="11" name="AutoMovingPlatforms" visible="0">
+ <objectgroup color="#ff5500" id="11" name="AutoMovingPlatforms">
   <object id="548" x="1696" y="224" width="64" height="96">
    <properties>
     <property name="ex" type="float" value="1696"/>
@@ -996,7 +996,6 @@
   <object id="610" name="trigger_next_level" x="4288" y="1632" width="128" height="96"/>
  </objectgroup>
  <objectgroup color="#5500ff" id="3" name="PlayerObjects" opacity="0.75">
-  <object id="591" name="player_spawn" x="1664" y="800" width="32" height="32"/>
   <object id="592" name="player_checkpoint" x="7680" y="864" width="32" height="32"/>
   <object id="593" name="player_checkpoint" x="6880" y="256" width="32" height="32"/>
   <object id="594" name="player_checkpoint" x="3936" y="256" width="32" height="32"/>
@@ -1004,5 +1003,6 @@
   <object id="596" name="player_checkpoint" x="96" y="1152" width="32" height="32"/>
   <object id="597" name="player_checkpoint" x="2496" y="288" width="32" height="32"/>
   <object id="598" name="player_checkpoint" x="1537" y="1376" width="32" height="32"/>
+  <object id="611" name="player_spawn" x="4256" y="1344" width="32" height="32"/>
  </objectgroup>
 </map>

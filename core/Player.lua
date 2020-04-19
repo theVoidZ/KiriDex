@@ -66,6 +66,7 @@ function Player:init()
 						Super_Jump = false,
 						Super_Dash = false,
 						Feather_Fall = false,
+						Dash_Bounce = false,
 						Dash = false}
 	self.look_direction = 1
 	
@@ -621,7 +622,7 @@ end
 
 function Player:Dash(forced)
 	if self:hasAbility("Dash") then
-		self.willBounce = not forced
+		self.willBounce = not forced and self:hasAbility("Dash_Bounce")
 		Event:getCamera():Shake(8,150)
 		self.dash_pos = self.position.copy
 		self.canDash = false

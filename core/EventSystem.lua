@@ -16,7 +16,7 @@ function EventSystem:init()
 	self.camera = gamera.new(0,0,1280,640)
 	self.camera:setWindow(0,0,WIDTH,HEIGHT)
 	
-	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash"})
+	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash","Level1_start"})
 	self.game_event = self.game_event_list.Tutorial_Intro
 	
 	self.timer = 10
@@ -28,7 +28,6 @@ function EventSystem:FirstInits()
 	self:addLevel("Maps/tutorial.lua","Tutorial")
 	self:addLevel("Maps/Level1.lua","Level1")
 	self:SelectLevel("Tutorial")
-	self:SelectLevel("Level1")
 	
 	local p = CreatePlayer()
 	local lx,ly = self.Level_Handler:getSpawnPoints().x, self.Level_Handler:getSpawnPoints().y
@@ -133,6 +132,10 @@ function EventSystem:TriggerUpdate(dt)
 										level.triggers[k].isTriggered = true
 										ACTORS[1].companions[1]:Say("oof, that was. close.",1500,80)
 									end
+								elseif v.name == "trigger_next_level" then
+									level.triggers[k].isTriggered = true
+									self.game_event = self.game_event_list.Level1_start
+									self:SelectLevel("Level1")
 								end
 							end
 						end
