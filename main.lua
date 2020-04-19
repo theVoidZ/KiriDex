@@ -71,11 +71,11 @@ function love.mousereleased(x,y,b)
 	end
 end
 function love.keypressed(key)
-	if key == "space" then
-		Event:SelectLevel("Tutorial")
-	elseif key == "l" then
-		Event:SelectLevel("Level1")
-	end
+	-- if key == "space" then
+		-- Event:SelectLevel("Tutorial")
+	-- elseif key == "l" then
+		-- Event:SelectLevel("Level1")
+	-- end
 	if Event:getGameState() == "PLAYING" then
 		for k,v in pairs(ACTORS) do
 			if v then
@@ -91,16 +91,6 @@ function love.keypressed(key)
 end
 function love.mousepressed(x,y,b)
 	if Event:getGameState() == "PLAYING" then
-		local mx, my = Event:getCamera():toWorld(x, y)
-		if b == 2 then
-			-- Animator:playAt(mx, my,{r=0,g=1,b=0},{r=1,g=1,b=1})
-			-- ACTORS[1]:onDeath()
-		else
-			-- local l = LightWorld:newLight(mx, my, 1, 1, 1, 300)
-			-- l:setSmooth(0.25)
-			-- ACTORS[1].companions[1]:Say("Hello and Welcome player!!!!! this is Platformer Simulator :D",1500,20)
-			-- ACTORS[1].companions[1]:Say("My name is WexBot my Creator is WexDex the one and only boii :) sike sike sike sike",1500,20)
-		end
 	elseif Event:getGameState() == "MENU" then
 	elseif Event:getGameState() == "MAIN" then
 		if x >= WIDTH/2-200 and x <= WIDTH/2+200 and y >= HEIGHT/2-50 and y <= HEIGHT/2+50 then
@@ -140,8 +130,8 @@ function love.draw()
 	Event:draw()
 	love.graphics.setColor(1,1,1,1)
 	love.graphics.print("FPS : "..love.timer.getFPS(),0,0)
-	love.graphics.print("Game State : "..Event:getGameState(),0,15)
-	love.graphics.print("Game Event : "..Event.game_event.name,0,30)
+	-- love.graphics.print("Game State : "..Event:getGameState(),0,15)
+	-- love.graphics.print("Game Event : "..Event.game_event.name,0,30)
 end
 
 function FirstInits()

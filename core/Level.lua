@@ -247,15 +247,10 @@ function Level:addLevel(path,name)
 											ACTORS[id]:addCompanion()
 											ACTORS[id].companions[#ACTORS[id].companions].position.x = b.x
 											ACTORS[id].companions[#ACTORS[id].companions].position.y = b.y
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Oh",1000,10)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Hello there.",2000,15)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("Hello there, Subject.",2000,15)
 											ACTORS[id].companions[#ACTORS[id].companions]:Say("What brings you here?",2000,20)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("You look Lost... and Confused",2000,40)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Okay, I'll Guide you through this",2000,40)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("So. Let us get going",2000,20)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Go?",2500,20)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Hmm, Looks like you're having trouble jumping",2500,20,function() ACTORS[id]:ChangeAbility("Jump",true) end)
-											ACTORS[id].companions[#ACTORS[id].companions]:Say("Let me help you, Try it!",2000,20)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("you're curious to get out, aren't you?",2000,40)
+											ACTORS[id].companions[#ACTORS[id].companions]:Say("okay then let's have some fun :D",2500,20,function() ACTORS[id]:ChangeAbility("Jump",true) end)
 											ACTORS[id].companions[#ACTORS[id].companions]:Say("Press Y to Jump",2000,20)
 											-- 
 										end

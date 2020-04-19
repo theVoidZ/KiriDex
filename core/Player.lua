@@ -20,6 +20,10 @@ function Player:init()
 	self.size = Vector(30,30)
 	self.scale = Vector(1,1)
 	
+	self.deaths = 0
+	self.play_time = 0
+	self.isCountingTime = true
+	
 	self.player_image = love.graphics.newImage("gfx/box2.png")
 	
 	self.time_factor = 1
@@ -246,6 +250,7 @@ function Player:onDeath()
 			-- end
 		-- end
 		self:EndDash()
+		self.deaths = self.deaths + 1
 	end
 end
 
@@ -269,6 +274,9 @@ end
 function Player:update(ddt)
 	local dt = ddt * self.time_factor
 	if self.isActive then
+		if self.isCountingTime then
+			self.play_time = self.play_time + dt*1000
+		end
 		if not self.isDead then
 			if self.isChangingColor then
 				if self.color_timer > 0 then
@@ -767,12 +775,31 @@ function Player:draw()
 				love.graphics.circle("line",self.position.x+self.size.x/2,self.position.y+self.size.y/2,20)
 			end
 		end
+		if self.isCountingTime then
+			love.graphics.setColor(1,1,1,1)
+		else
+			love.graphics.setColor(0,1,0,1)
+		end
+		local ccx, ccy = Event:getCamera():getPosition()
+		love.graphics.printf("Deaths : "..self.deaths,ccx-WIDTH/4,ccy-HEIGHT/2+15,500,"center")
+		local t = MSecondsToClock2(self.play_time)
+		love.graphics.printf(t,ccx-WIDTH/4,ccy-HEIGHT/2,500,"center")
 		for k = 1,#self.companions do
 			if self.companions[k] then
 				self.companions[k]:draw()
 			end
 		end
 	end
+end
+
+function Player:getDeaths()
+	return self.deaths
+end
+function Player:StopTimer()
+	self.isCountingTime = false
+end
+function Player:getTime()
+	return MSecondsToClock2(self.play_time)
 end
 
 function CreatePlayer()

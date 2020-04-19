@@ -37,7 +37,6 @@ function Solid:Move(x, y)
 		if moveX ~= 0 then
 			self.xRemainder = self.xRemainder - moveX
 			self.position.x = self.position.x + moveX
-			
 			if moveX > 0 then
 				for k,v in pairs(ACTORS) do
 					if v then

@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 11,
-  nextobjectid = 113,
+  nextobjectid = 114,
   properties = {
     ["darkness"] = 0.10000000000000001
   },
@@ -35,7 +35,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 7,
+      tilecount = 13,
       tiles = {
         {
           id = 1,
@@ -77,6 +77,42 @@ return {
         {
           id = 12,
           image = "Hot_tile.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 13,
+          image = "grass1.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 14,
+          image = "dirt.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 15,
+          image = "sky1.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 16,
+          image = "sky3.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 17,
+          image = "sky2.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 18,
+          image = "sky4.png",
           width = 32,
           height = 32
         }
@@ -1046,7 +1082,7 @@ return {
       draworder = "topdown",
       id = 6,
       name = "AutoMovingPlatforms",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1279,7 +1315,7 @@ return {
       draworder = "topdown",
       id = 8,
       name = "Trampolines",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1356,7 +1392,7 @@ return {
       draworder = "topdown",
       id = 4,
       name = "PlayerObjects",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -1415,7 +1451,7 @@ return {
           properties = {}
         },
         {
-          id = 112,
+          id = 113,
           name = "player_spawn",
           type = "",
           shape = "rectangle",

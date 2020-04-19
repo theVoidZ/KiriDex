@@ -47,9 +47,10 @@ function EventSystem:FirstInits()
 	-- p:ChangeAbility("Super_Jump",true)
 	-- p:ChangeAbility("Super_Dash",true)
 	-- p:ChangeAbility("Powered_Jump",true)
+	-- p:ChangeAbility("Wall_Jump",true)
+	
 	-- p:ChangeAbility("Dash",true)
 	-- p:ChangeAbility("Jump",true)
-	-- p:ChangeAbility("Wall_Jump",true)
 	
 	-- print(p.position.x)
 end
@@ -80,17 +81,17 @@ function EventSystem:TriggerUpdate(dt)
 								elseif v.name == "trigger_long_jump_end" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
 										level.triggers[k].isTriggered = true
-										ACTORS[1].companions[1]:Say("Niiiiiice :D",500,20)
+										ACTORS[1].companions[1]:Say("not baad :D",500,20)
 									end
 								elseif v.name == "trigger_first_trampoline" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
 										level.triggers[k].isTriggered = true
-										ACTORS[1].companions[1]:Say("Would you look at that, Trampolines",1500,20)
+										ACTORS[1].companions[1]:Say("Trampolines!!!",1500,20)
 									end
 								elseif v.name == "trigger_first_hazard" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
 										level.triggers[k].isTriggered = true
-										ACTORS[1].companions[1]:Say("These will probably kill you, be carefull",1500,20)
+										ACTORS[1].companions[1]:Say("Red = Bad",1500,20)
 									end
 								elseif v.name == "trigger_second_hazard" then
 									if self.game_event == self.game_event_list.Tutorial_Companion then
@@ -110,7 +111,7 @@ function EventSystem:TriggerUpdate(dt)
 								elseif v.name == "trigger_jump_fail" then
 									if self.game_event ~= self.game_event_list.Tutorial_Dash then
 										level.triggers[k].isTriggered = true
-										ACTORS[1].companions[1]:Say("Looks lke you cant reach it for now",2000,20)
+										ACTORS[1].companions[1]:Say("Looks lke you cant reach it",2000,20)
 									end
 								elseif v.name == "trigger_dash_remind" then
 									if self.game_event == self.game_event_list.Tutorial_Dash then
@@ -142,10 +143,16 @@ function EventSystem:TriggerUpdate(dt)
 									self.game_event = self.game_event_list.Level1_start
 									self:SelectLevel("Level1")
 								elseif v.name == "trigger_next_level2" then
-									print("fqopefkqosefjeoqsj")
 									level.triggers[k].isTriggered = true
 									self.game_event = self.game_event_list.Level2_start
 									self:SelectLevel("Level2")
+								elseif v.name == "trigger_end_game" then
+									level.triggers[k].isTriggered = true
+									self.camera:setWorld(level.triggers[k].x,level.triggers[k].y,level.triggers[k].width,level.triggers[k].height)
+									ACTORS[1]:StopTimer()
+									ACTORS[1].companions[1]:Say("Your time was : "..ACTORS[1]:getTime(),3000,80)
+									ACTORS[1].companions[1]:Say("Your died : "..ACTORS[1]:getDeaths().." Time(s)",3000,80)
+									ACTORS[1].companions[1]:Say("Thanks for Playing",3000,80)
 								end
 							end
 						end

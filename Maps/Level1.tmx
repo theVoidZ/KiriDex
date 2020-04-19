@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="48" height="61" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="113">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="48" height="61" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="114">
  <editorsettings>
   <export target="Level1.lua" format="lua"/>
  </editorsettings>
@@ -93,7 +93,7 @@
   <object id="57" x="672" y="576" width="288" height="32"/>
   <object id="83" x="160" y="1568" width="160" height="32"/>
  </objectgroup>
- <objectgroup color="#ff5500" id="6" name="AutoMovingPlatforms" visible="0">
+ <objectgroup color="#ff5500" id="6" name="AutoMovingPlatforms">
   <object id="34" x="640" y="1424" width="32" height="32">
    <properties>
     <property name="ex" type="float" value="864"/>
@@ -205,7 +205,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#aa5500" id="8" name="Trampolines" visible="0">
+ <objectgroup color="#aa5500" id="8" name="Trampolines">
   <object id="104" x="1472" y="896" width="32" height="32">
    <properties>
     <property name="directionX" type="int" value="-1"/>
@@ -231,11 +231,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#5500ff" id="4" name="PlayerObjects" visible="0">
+ <objectgroup color="#5500ff" id="4" name="PlayerObjects">
   <object id="36" name="player_checkpoint" x="672" y="1792" width="32" height="32"/>
   <object id="70" name="player_checkpoint" x="864" y="768" width="32" height="32"/>
   <object id="71" name="player_checkpoint" x="1088" y="64" width="32" height="32"/>
   <object id="108" name="player_checkpoint" x="1184" y="1888" width="32" height="32"/>
-  <object id="112" name="player_spawn" x="288" y="0" width="32" height="32"/>
+  <object id="113" name="player_spawn" x="288" y="0" width="32" height="32"/>
  </objectgroup>
 </map>

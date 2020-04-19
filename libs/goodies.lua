@@ -49,6 +49,20 @@ function SecondsToClock(seconds)
     return hours..":"..mins..":"..secs
   end
 end
+
+function MSecondsToClock2(mseconds)
+	local seconds = tonumber(mseconds/1000)
+
+	if seconds <= 0 then
+		return "00:00:00";
+	else
+		-- hours = string.format("%02.f", math.floor(seconds/3600));
+		local mins = string.format("%02.f", math.floor(seconds/60));
+		local secs = string.format("%02.f", math.floor(seconds - mins *60));
+		local ms = string.format("%.1f", (seconds-math.floor(seconds))*60)
+		return mins..":"..secs..":"..ms
+	end
+end
 function doOverlap(x1,y1,x2,y2,x3,y3,x4,y4,eq)
 	if eq then
 		if (x1 >= x4 or x3 >= x2) then

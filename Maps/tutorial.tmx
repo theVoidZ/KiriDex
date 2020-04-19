@@ -995,7 +995,7 @@
   <object id="609" name="trigger_level_end_chat" x="4064" y="1184" width="160" height="320"/>
   <object id="610" name="trigger_next_level" x="4288" y="1632" width="128" height="96"/>
  </objectgroup>
- <objectgroup color="#5500ff" id="3" name="PlayerObjects" visible="0" opacity="0.75">
+ <objectgroup color="#5500ff" id="3" name="PlayerObjects" opacity="0.75">
   <object id="592" name="player_checkpoint" x="7680" y="864" width="32" height="32"/>
   <object id="593" name="player_checkpoint" x="6880" y="256" width="32" height="32"/>
   <object id="594" name="player_checkpoint" x="3936" y="256" width="32" height="32"/>
