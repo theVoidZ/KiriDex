@@ -32,7 +32,7 @@ function Player:init()
 	
 	self.speed_const = 350
 	self.speed = 350
-	self.max_fall_speed = 500
+	self.max_fall_speed = 900
 	self.jump_power_const = 100
 	self.jump_power = 100
 	
@@ -400,7 +400,6 @@ function Player:handleDashing(dt)
 		self.dash_duration = self.dash_duration - 1000*dt
 		-- self.velocity.x = self.dash_power * self.look_direction
 		-- self.velocity.y = 0
-		print(self.dash_direction)
 		self.velocity.x = self.dash_power * self.dash_direction.x * 1 / self.dash_direction.length
 		self.velocity.y = self.dash_power * self.dash_direction.y * 1 / self.dash_direction.length
 	else

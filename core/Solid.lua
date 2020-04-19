@@ -23,6 +23,7 @@ function Solid:init()
 end
 
 function Solid:Move(x, y)
+	if not self.isActive then return false end
 	self.xRemainder = self.xRemainder + x
 	self.yRemainder = self.yRemainder + y
 	

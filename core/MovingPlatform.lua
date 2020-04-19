@@ -64,7 +64,7 @@ function MovingPlatform:draw()
 		love.graphics.setColor(0.85,0.85,0.9,1)
 		love.graphics.rectangle("line",self.position.x,self.position.y,self.size.x,self.size.y)
 		-- love.graphics.setColor(1,1,1,1)
-		-- love.graphics.print(self.index,self.position.x+self.size.x/2,self.position.y+self.size.y/2-8)
+		-- love.graphics.print("ACTVE",self.position.x+self.size.x/2,self.position.y+self.size.y/2-8)
 	end
 end
 function CreateMovingPlatform(x,y,w,h,deadly,rangeX,rangeY)

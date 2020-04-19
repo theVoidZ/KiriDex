@@ -63,6 +63,26 @@ function Level:DisableCollisions(id)
 				v.isActive = false
 			end
 		end
+		for k,v in pairs(self.levels[id].collectables) do
+			if v then
+				v.isActive = false
+			end
+		end
+		for k,v in pairs(self.levels[id].triggers) do
+			if v then
+				v.isActive = false
+			end
+		end
+		for k,v in pairs(self.levels[id].trampolines) do
+			if v then
+				v.isActive = false
+			end
+		end
+		for k,v in pairs(self.levels[id].movingPlatforms) do
+			if v then
+				v.isActive = false
+			end
+		end
 	end
 end
 
@@ -78,13 +98,33 @@ function Level:EnableCollisions(id)
 				v.isActive = true
 			end
 		end
+		for k,v in pairs(self.levels[id].collectables) do
+			if v then
+				v.isActive = true
+			end
+		end
+		for k,v in pairs(self.levels[id].triggers) do
+			if v then
+				v.isActive = true
+			end
+		end
+		for k,v in pairs(self.levels[id].trampolines) do
+			if v then
+				v.isActive = true
+			end
+		end
+		for k,v in pairs(self.levels[id].movingPlatforms) do
+			if v then
+				v.isActive = true
+			end
+		end
 	end
 end
 
 function Level:addLevel(path,name)
 	local info = love.filesystem.getInfo(path, "file")
 	local level_info = {}
-	level_info.darkness = 1
+	level_info.darkness = 0.5
 	level_info.objects = {}
 	level_info.spawn_points = {}
 	level_info.collectables = {}
@@ -100,7 +140,7 @@ function Level:addLevel(path,name)
 			level_info.name = name or "Level "..#self.level_info+1
 			level_info.width = data.width * data.tilewidth-18
 			level_info.height = data.height * data.tileheight-9
-			level_info.darkness = data.properties["darkness"]
+			level_info.darkness = data.properties["darkness"] or 0.5
 			for k,v in pairs(data.layers) do
 				if v.type == "objectgroup" then
 					if v.name == "Walls" then

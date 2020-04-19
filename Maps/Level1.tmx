@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="48" height="61" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="18">
+ <editorsettings>
+  <export target="Level1.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="darkness" type="float" value="0.59999999999999998"/>
+ </properties>
+ <tileset firstgid="1" source="MyTileset.tsx"/>
+ <layer id="2" name="Background" width="48" height="61">
+  <data encoding="base64" compression="zstd">
+   KLUv/WDALLUSANLHCYsQAAAAACNJc02mtZZVZ7KdVKk3pcumWtbLmpzlJskyLVMABBCABIGEqOH6/gChBcYoqZkBEsATBDBBBBKEQCFmhYyKrFIpLRQEvQC9hfNCcolzi/dB2dMxa93yetN87E3V4tXnJ8+S48ymgvzxcZB83Ru+W8LmJGy1juXII9AjwECYZcRuzyS4cT6OoX3lP4Lvw43KrU+OJ47b5qmm44vCrMqPGE4649P561rG8n6n+Q3FrPyz+3FehZH421Z33m9MrXLLEeIvUnNUeiXjFYhdqT42vN373AexmLvu+FWYeHA6hFmN+3bzpMx9Sc25qx0DubK+7uIvDy7z/fwm7r5PqDdp27HDPNkex5yf9552xkr1yKyGD+k3jonBkw5mYB3SZtOdvwTPUVo7jyL2zOtHRcMwFk6QnsvXkJPTnnEi82jnd7BE7dgf8EsVvsHf1HrfrQxH8m92ZdAyZDP4bOvmg/s1/dC3oa1gfIr+1GXHS/SQse8dPfNcGJrwfH+vf9I2oI8Aj+GJcV1iwB5udnSGO+lef638+IL3GXnyDYk/UA0v4yk+p9dlvJn+wfez+YTJAHLU94+cmpXcdHjAvx/2ah8JW9XRc7JzsPrkAAOf0DibFkemEfCslAX0kSMWM85jw7X0YoKR3CO06xrupUbv0wy4Q4eGE7wxJi5hDygnG8DZ4jlifytgN9Fnfe59cHxOG54eSB0nzm4fhT2tdrh5WSDjhfbapf+yGVz+fLInuQ7Wu9N0Hsfvlkl9ptX9ZX1iNNHoxpUfcx1/NJ89eaj/3h8=
+  </data>
+ </layer>
+ <layer id="1" name="Front" width="48" height="61">
+  <data encoding="base64" compression="zstd">
+   KLUv/WDALD0CADgEAAAADQQNHaDQXQNww5XCcgEoeNlM08tc/AOkShF/SYP6F+JHWp5aCVLFP9Ka+rsW1cpsFbxDLD0Kglkb9oNKeyYiYAal
+  </data>
+ </layer>
+ <objectgroup color="#000000" id="3" name="Walls" visible="0" opacity="0.75">
+  <object id="5" x="384" y="0" width="224" height="512"/>
+  <object id="6" x="416" y="512" width="192" height="32"/>
+  <object id="7" x="448" y="544" width="160" height="160"/>
+  <object id="8" x="480" y="704" width="128" height="960"/>
+  <object id="9" x="480" y="1888" width="320" height="64"/>
+  <object id="10" x="0" y="0" width="160" height="1952"/>
+  <object id="11" x="160" y="0" width="96" height="512"/>
+  <object id="12" x="160" y="512" width="64" height="64"/>
+  <object id="13" x="160" y="576" width="32" height="128"/>
+ </objectgroup>
+ <objectgroup color="#ff0000" id="5" name="Hazards" visible="0">
+  <object id="14" x="352" y="800" width="128" height="32"/>
+  <object id="15" x="160" y="1024" width="128" height="32"/>
+  <object id="16" x="352" y="1248" width="128" height="32"/>
+  <object id="17" x="160" y="1920" width="320" height="32"/>
+ </objectgroup>
+ <objectgroup color="#5500ff" id="4" name="PlayerObjects" visible="0">
+  <object id="4" name="player_spawn" x="288" y="0" width="32" height="32"/>
+ </objectgroup>
+</map>

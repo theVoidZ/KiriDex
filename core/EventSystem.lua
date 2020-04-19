@@ -26,7 +26,9 @@ function EventSystem:FirstInits()
 	self.Level_Handler = CreateLevel()
 	self.Animator = CreateDeathAnimator()
 	self:addLevel("Maps/tutorial.lua","Tutorial")
+	self:addLevel("Maps/Level1.lua","Level1")
 	self:SelectLevel("Tutorial")
+	self:SelectLevel("Level1")
 	
 	local p = CreatePlayer()
 	local lx,ly = self.Level_Handler:getSpawnPoints().x, self.Level_Handler:getSpawnPoints().y
@@ -156,12 +158,24 @@ function EventSystem:SelectLevel(id) -- id can be Number or Name
 	end
 	local lvl = self.Level_Handler:getCurrentLevel()
 	self.camera:setWorld(0,0,math.max(lvl.width,WIDTH),math.max(lvl.height,HEIGHT))
+	
+	local p = ACTORS[1]
+	if p then
+		local lx,ly = self.Level_Handler:getSpawnPoints().x, self.Level_Handler:getSpawnPoints().y
+		p.position.x = lx
+		p.position.y = ly
+		p:Spawn(lx,ly,true)
+		
+		p.respawn_point.x = lx
+		p.respawn_point.y = ly
+	end
 end
 function EventSystem:addLevel(path,name)
 	self.Level_Handler:addLevel(path,name)
 end
 
 function EventSystem:update(dt)
+	-- print(self.camera:getPosition())
 	if self.game_state == self.game_state_list.PLAYING then
 		if self.timer > 0 then
 			self.timer = self.timer - 1000*dt

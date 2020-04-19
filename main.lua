@@ -72,18 +72,9 @@ function love.mousereleased(x,y,b)
 end
 function love.keypressed(key)
 	if key == "space" then
-		if ACTORS[1].dash_consumption == 1 then
-			ACTORS[1].dash_consumption = 2
-		else
-			ACTORS[1].dash_consumption = 1
-		end
+		Event:SelectLevel("Tutorial")
 	elseif key == "l" then
-		-- LIGHTING = not LIGHTING
-		-- if LIGHTING then
-			-- LightWorld:setAmbientColor(0.1,0.1,0.1)
-		-- else
-			-- LightWorld:setAmbientColor(1, 1, 1)
-		-- end
+		Event:SelectLevel("Level1")
 	end
 	if Event:getGameState() == "PLAYING" then
 		for k,v in pairs(ACTORS) do
