@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="150" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="124">
+ <editorsettings>
+  <export target="Level2.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="darkness" type="float" value="0.10000000000000001"/>
+ </properties>
+ <tileset firstgid="1" source="MyTileset.tsx"/>
+ <layer id="2" name="Background" width="150" height="32">
+  <data encoding="base64" compression="zstd">
+   KLUv/WAASk0XAALLDIsQAAAAABMrJ+2CMrlTOb3kO9mkmWRkSetS59JLMqY+6WBDEkpWpU0taybbTNMSgAACoIG7qKF2+gFBBVJBqUANEkATJChBxhPkQCGHIlNRTRIyyPuVHLcY/8xev8ijfsitDKWpb1Ur4biVDqnbaW+g6/Cwn+6esXbrV3sqmX2DsOf6BZ3VftPKdIrTKilq+tH3ArfhQcPvl/W5jLTpsHQJTDpbPDLADqXdmcHsDj547piskoWLGobsbs5b/gUs1zcGX3BLWn+u2lfiYlsNntyWIIZ1Ydcn9IXSpQvtlfC+w4XfP4gVZt+oglNs+f2s/+5UQnRnmhN0wuxynnDOayl1/r5HMs5IVRLxmByJZfuoXT7KqRz85A/p9Gb2r6ES4xuWNNo9VP8JddSOwe+QC33QdfLstBLSlbJfo/TIVyisW/uuev6n07uT12ElCIubxh/ZrPxWpsg9DoeJBwbDoe99cgn16csH1nh+AMznPMUw3jcxjc9ru1SVHFUM/XttivoK9e9viGwIv4JXErFO6F3F9f/+2j5h+cvevQGxplA2lPaX5N1j4zdsXojuWFwoG/eyYnivEuoaXkLtSh60pxNc/M2ztj8g1l2USsK3g5gAeyVx0Og7G8bFbW7+V4ucduwVOTvmfGUQ1zmYuY6z/NbKS04yO+3xXrkv3gGaAwjV/nVZp6UqYfQUHIxKQ0WnZP2+YZozVN7FZ3SuLrNLeF90xBmc8cl/qD389bdwsssq7BIOnwSd7mr9JVfrbl74rbvbc+wSsCj7lNUj+MGXazsPc57nOHHcVMkcl+EafGCAgZc6ugQAfjGYbtxtVjIeYCfp8D2DnzG88//h2yLLQ99jlZCuzC2A3fZhrTXwegsqTE9uz1eHKmF71xRn3LCTbVLc+6uEq3oWqIT6d/Fhvyz7fCzb961jmvG3/0KrkvRFFU7xe77c83hDfnrO9/C+EtBwnu93GoGm/LAeckjBSEg/pekN4gc=
+  </data>
+ </layer>
+ <layer id="1" name="Front" width="150" height="32">
+  <data encoding="base64" compression="zstd">
+   KLUv/WAASqUEAFQCAAAEBAQEBAQEBAQEBAQEBAQEBAQEDQQNBA0EDQQNBA0EDQQNBD6o4Dwgg26WABH8/98QPEYVgCjAK2NNcTA5HATHYSUGguYxmAwGAsexkgewD3cS/XF4w893Mch78Atom4Zn6Ew3BrkH/gDt6fDGc7u4WvKYJcC7aAT8jDbAzugH2Bl9gJ3RBtgZ/QA79V6pwg8=
+  </data>
+ </layer>
+ <objectgroup color="#ffff00" id="9" name="Collectables" visible="0"/>
+ <objectgroup color="#00ffff" id="7" name="FragilePlatforms" visible="0"/>
+ <objectgroup color="#000000" id="3" name="Walls" opacity="0.75">
+  <object id="114" x="0" y="512" width="1056" height="224"/>
+  <object id="115" x="0" y="864" width="256" height="160"/>
+  <object id="116" x="672" y="864" width="384" height="160"/>
+  <object id="117" x="3424" y="864" width="608" height="160"/>
+  <object id="118" x="2432" y="864" width="576" height="160"/>
+  <object id="119" x="1472" y="864" width="544" height="160"/>
+ </objectgroup>
+ <objectgroup color="#00ff00" id="10" name="EventTriggers" visible="0"/>
+ <objectgroup color="#ff0000" id="5" name="Hazards">
+  <object id="120" x="256" y="960" width="416" height="64"/>
+  <object id="121" x="1056" y="960" width="416" height="64"/>
+  <object id="122" x="2016" y="960" width="416" height="64"/>
+  <object id="123" x="3008" y="960" width="416" height="64"/>
+ </objectgroup>
+ <objectgroup color="#ff5500" id="6" name="AutoMovingPlatforms" visible="0"/>
+ <objectgroup color="#aa5500" id="8" name="Trampolines" visible="0"/>
+ <objectgroup color="#5500ff" id="4" name="PlayerObjects" visible="0">
+  <object id="112" name="player_spawn" x="32" y="832" width="32" height="32"/>
+ </objectgroup>
+</map>

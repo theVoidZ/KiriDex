@@ -627,7 +627,6 @@ function Player:Dash(forced)
 		self.dash_pos = self.position.copy
 		self.canDash = false
 		self.dash_duration = self.dash_duration_const
-		self.dash_distance = self.dash_distance_const
 		self.isDashing = true
 		self.isGrounded = false
 		self.trail_has_stopped = false

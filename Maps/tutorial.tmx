@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="613">
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="268" height="51" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="615">
  <editorsettings>
   <export target="tutorial.lua" format="lua"/>
  </editorsettings>
@@ -361,7 +361,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#aa5500" id="9" name="Trampolines" visible="0">
+ <objectgroup color="#aa5500" id="9" name="Trampolines">
   <object id="163" x="3776" y="960" width="32" height="32">
    <properties>
     <property name="directionX" type="int" value="0"/>
@@ -597,7 +597,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ffff00" id="5" name="Collectables" visible="0">
+ <objectgroup color="#ffff00" id="5" name="Collectables">
   <object id="50" name="strawberry" x="416" y="1056" width="32" height="32"/>
   <object id="211" name="dash" x="4608" y="1280" width="32" height="32"/>
  </objectgroup>
@@ -898,7 +898,7 @@
   <object id="568" x="1856" y="1376" width="32" height="64"/>
   <object id="576" x="160" y="416" width="64" height="32"/>
  </objectgroup>
- <objectgroup color="#00ffff" id="12" name="FragilePlatforms" visible="0">
+ <objectgroup color="#00ffff" id="12" name="FragilePlatforms">
   <object id="537" x="2208" y="384" width="96" height="32"/>
   <object id="538" x="2016" y="384" width="96" height="32"/>
   <object id="539" x="1792" y="384" width="96" height="32"/>
@@ -1004,5 +1004,7 @@
   <object id="597" name="player_checkpoint" x="2496" y="288" width="32" height="32"/>
   <object id="598" name="player_checkpoint" x="1537" y="1376" width="32" height="32"/>
   <object id="611" name="player_spawn" x="4256" y="1344" width="32" height="32"/>
+  <object id="613" name="player_checkpoint" x="3328" y="288" width="32" height="32"/>
+  <object id="614" name="player_checkpoint" x="5120" y="320" width="32" height="32"/>
  </objectgroup>
 </map>

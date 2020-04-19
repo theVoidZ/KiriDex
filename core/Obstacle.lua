@@ -53,9 +53,24 @@ function Obstacle:update(dt)
 			self.respawn_time = self.respawn_time - 1000*dt
 		else
 			self.respawn_time = 0
-			self.Collidable = true
-			self.willDie = false
-			self.willRespawn = false
+			local canSpawn = true
+			for k,v in pairs(ACTORS) do
+				if v then
+					if v.isActive then
+						if doOverlap(self.position.x,self.position.y,self.position.x+self.size.x,self.position.y+self.size.y,v.position.x,v.position.y,v.position.x+v.size.x,v.position.y+v.size.y,true) then
+							canSpawn = false
+							break
+						end
+					end
+				end
+			end
+			if canSpawn then
+				self.Collidable = true
+				self.willDie = false
+				self.willRespawn = false
+			else
+				self.respawn_time = self.respawn_time_const*0.5
+			end
 		end
 	end
 end
@@ -72,9 +87,10 @@ function Obstacle:draw()
 				love.graphics.setColor(0.85,0.85,0.9,a)
 				love.graphics.rectangle("line",self.position.x,self.position.y,self.size.x,self.size.y)
 				
-				-- love.graphics.print(tostring(self.willDie),self.position.x,self.position.y)
 			end
 		end
+		love.graphics.setColor(0.85,0.85,0.9,1)
+		love.graphics.print(tostring(self.respawn_time),self.position.x,self.position.y)
 	end
 end
 

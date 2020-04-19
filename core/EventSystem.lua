@@ -16,7 +16,7 @@ function EventSystem:init()
 	self.camera = gamera.new(0,0,1280,640)
 	self.camera:setWindow(0,0,WIDTH,HEIGHT)
 	
-	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash","Level1_start"})
+	self.game_event_list = enum({"Tutorial_Intro","Tutorial_Standby","Tutorial_onGoing","Tutorial_Companion","Tutorial_Dash","Level1_start","Level2_start"})
 	self.game_event = self.game_event_list.Tutorial_Intro
 	
 	self.timer = 10
@@ -27,6 +27,7 @@ function EventSystem:FirstInits()
 	self.Animator = CreateDeathAnimator()
 	self:addLevel("Maps/tutorial.lua","Tutorial")
 	self:addLevel("Maps/Level1.lua","Level1")
+	self:addLevel("Maps/Level2.lua","Level2")
 	self:SelectLevel("Tutorial")
 	
 	local p = CreatePlayer()
@@ -136,6 +137,11 @@ function EventSystem:TriggerUpdate(dt)
 									level.triggers[k].isTriggered = true
 									self.game_event = self.game_event_list.Level1_start
 									self:SelectLevel("Level1")
+								elseif v.name == "trigger_next_level2" then
+									print("fqopefkqosefjeoqsj")
+									level.triggers[k].isTriggered = true
+									self.game_event = self.game_event_list.Level2_start
+									self:SelectLevel("Level2")
 								end
 							end
 						end

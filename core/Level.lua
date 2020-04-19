@@ -19,6 +19,7 @@ function Level:init()
 	self.IMAGES.Collectables = {}
 	table.insert(self.IMAGES.Companions,love.graphics.newImage("gfx/strawberry2.png"))
 	table.insert(self.IMAGES.Collectables,love.graphics.newImage("gfx/Crystal1.png"))
+	table.insert(self.IMAGES.Collectables,love.graphics.newImage("gfx/Crystal2.png"))
 end
 function Level:getCurrentLevel()
 	if self.current_level ~= 0 then
@@ -202,7 +203,7 @@ function Level:addLevel(path,name)
 					elseif v.name == "Collectables" then
 						for a,b in pairs(v.objects) do
 							if b.name == "dash" then
-								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[1]))
+								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[2]))
 								level_info.collectables[#level_info.collectables].position.x = b.x
 								level_info.collectables[#level_info.collectables].position.y = b.y
 								local func = function(id)
@@ -214,6 +215,22 @@ function Level:addLevel(path,name)
 												ACTORS[id].companions[#ACTORS[id].companions]:Say("Just Press U to Dash!",2500,20)
 												ACTORS[id]:ChangeAbility("Dash",true)
 											end
+										end
+									end
+								end
+								level_info.collectables[#level_info.collectables]:setPickFunction(func)
+							elseif b.name == "super_speed" then
+								table.insert(level_info.collectables,CreateCollectable(self.IMAGES.Collectables[2]))
+								level_info.collectables[#level_info.collectables].position.x = b.x
+								level_info.collectables[#level_info.collectables].position.y = b.y
+								local func = function(id)
+									if ACTORS[id] then
+										if not ACTORS[id].isDead then
+											if ACTORS[id].companions[#ACTORS[id].companions] then
+												Event.game_event = Event.game_event_list.Tutorial_Dash
+												ACTORS[id].companions[#ACTORS[id].companions]:Say("Nicee you got Super Speed",2500,20)
+											end
+											ACTORS[id]:ChangeAbility("Super_Speed",true)
 										end
 									end
 								end
