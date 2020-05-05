@@ -34,6 +34,11 @@ public class Sound
         source.pitch = pitch * (1 + Random.Range(-randomPitch/2f, randomPitch/2f));
         source.Play();
     }
+    
+    public void Stop()
+    {
+        source.Stop();
+    }
 }
 
 public class AudioManager : MonoBehaviour
@@ -42,7 +47,7 @@ public class AudioManager : MonoBehaviour
     
     
     [SerializeField]
-    private Sound[] sounds;
+    public Sound[] sounds;
 
     private void Start()
     {
@@ -58,7 +63,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string _name)
     {
-        Debug.Log("PLAY SOUND");
         for (int i = 0; i < sounds.Length; i++)
         {
             if (sounds[i].name == _name)
@@ -68,4 +72,17 @@ public class AudioManager : MonoBehaviour
             }
         }   
     }
+    
+    public void StopSound(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == _name)
+            {
+                sounds[i].Stop();
+                return;
+            }
+        }   
+    }
+    
 }

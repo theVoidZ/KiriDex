@@ -46,8 +46,8 @@ MonoBehaviour:
       multiplicative: 0
       additive: 0
   m_UseDepthStencilBuffer: 1
-  m_DefaultMaterialType: 0
-  m_DefaultCustomMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_DefaultMaterialType: 1
+  m_DefaultCustomMaterial: {fileID: 2100000, guid: 8c52c7db6765be76386bd9141a47aa3b, type: 2}
   m_DefaultLitMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_DefaultUnlitMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_ShapeLightShader: {fileID: 4800000, guid: d79e1c784eaf80c4585c0be7391f757a, type: 3}

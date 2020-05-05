@@ -12,16 +12,6 @@ public class MenuController : MonoBehaviour
     
     public GameObject upgradeMenu;
     public Text pointDisplay;
-    
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            upgradeMenu.SetActive( !upgradeMenu.activeSelf );
-        }
-
-        pointDisplay.text = "points: " + upgradePoints;
-    }
 
     public void PlayGame()
     {

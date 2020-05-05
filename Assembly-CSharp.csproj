@@ -51,8 +51,19 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
+     <Compile Include="Assets\Scripts\CollectStrawberry.cs" />
+     <Compile Include="Assets\Scripts\Dialog.cs" />
+     <Compile Include="Assets\Scripts\DialogManager.cs" />
+     <Compile Include="Assets\Scripts\DialogTrigger.cs" />
+     <Compile Include="Assets\Scripts\GlitchApply.cs" />
+     <Compile Include="Assets\Scripts\GlitchApplyLoop.cs" />
+     <Compile Include="Assets\Scripts\GlitchIntro.cs" />
+     <Compile Include="Assets\Scripts\GradualDissolve.cs" />
+     <Compile Include="Assets\Scripts\Intro.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
-     <Compile Include="Assets\Scripts\UpgradeScript.cs" />
+     <Compile Include="Assets\Scripts\Pixelator.cs" />
      <Compile Include="Assets\Scripts\VrtualGuyMovement.cs" />
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
  <HintPath>/doc/projects/unity/GlitchGame/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>

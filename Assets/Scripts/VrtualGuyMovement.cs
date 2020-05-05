@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class VrtualGuyMovement : MonoBehaviour
 {
+    public Transform initalPos;
+    
     public float speed = 75;
     public float jumpVelocity = 6;
 
@@ -36,6 +38,9 @@ public class VrtualGuyMovement : MonoBehaviour
     //
     private void Awake()
     {
+        if( initalPos != null )
+            transform.position = initalPos.position;
+        
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioManager = GetComponent<AudioManager>();
