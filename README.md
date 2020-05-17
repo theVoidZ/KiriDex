@@ -18,7 +18,7 @@
  - **theme**: Gravity
  - **Engine**: LÖVE
  
-### [Glitch Has Joined the Game](https://github.com/theVoidZ/KiriDex/tree/glitch-game "Glitch Has Joined the Game"): ( Untitled Game Jam #21 )
+### [Glitch Has Joined the Game](https://github.com/theVoidZ/KiriDex/tree/glitch-game "Glitch Has Joined the Game"): ( Untitled Game Jam #22 )
  - **theme**: Trash
  - **Engine**: Unity 2d
  
