@@ -1,5 +1,5 @@
 function love.conf(a)
-	a.title = "Platformer Simulator"
+	a.title = "The Cake isnt a Lie"
 	a.identity = "WexDex"
 	a.window.width = 1024
 	a.window.height = 600

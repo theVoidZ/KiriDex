@@ -69,7 +69,7 @@ function Entity:onPreCollision(id,type) -- can overwrite for extra effect, like 
 end
 function Entity:onCollision(id,type)
 end
-function Entity:getDamaged()
+function Entity:getDamaged(type)
 	self.isActive = false
 end
 function Entity:onAction()

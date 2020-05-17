@@ -55,7 +55,7 @@ function Key:onCollision(id,type)
 		print("KEY PICKED")
 		MapHandler:ChangeKey(id,1)
 		-- self.isActive = false
-		self:getDamaged()
+		self:getDamaged(self.class.name)
 	end
 end
 function Key:update(dt)

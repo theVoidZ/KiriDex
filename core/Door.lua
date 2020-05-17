@@ -48,7 +48,7 @@ function Door:onPreCollision(id,type) -- can overwrite for extra effect, like do
 			MapHandler:ChangeKey(id,-1)
 			self.open_sound:stop()
 			self.open_sound:play()
-			self:getDamaged()
+			self:getDamaged(self.class.name)
 		end
 	end
 	return self.isSolid

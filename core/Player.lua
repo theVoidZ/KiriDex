@@ -101,12 +101,15 @@ function Player:update(dt)
 		-- self:keypressed("down")
 	-- end
 end
-function Player:getDamaged()
+function Player:getDamaged(type)
 	self.isActive = false
 	-- death sound plays
 	self.death_sound:stop()
 	self.death_sound:play()
-	Timer.after(1/1000,function() MapHandler:Restart() end)
+	Timer.after(1/1000,function()
+							camera:Shake(5,500)
+							MapHandler:Restart()
+						end)
 end
 function Player:getKeys()
 	return self.keys_count

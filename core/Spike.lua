@@ -71,7 +71,7 @@ end
 
 function Spike:onCollision(id,type)
 	if self.frame == self.damage_frame then
-		MapHandler:Damage(id)
+		MapHandler:Damage(id,self.class.name)
 		self.spikeopen_sound:stop()
 		self.spikeopen_sound:play()
 	end

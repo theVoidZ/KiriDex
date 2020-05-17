@@ -1,6 +1,8 @@
 math.randomseed(os.time())
 WIDTH,HEIGHT = love.graphics.getWidth(),love.graphics.getHeight()
 
+GAMESTATE = "MENU"
+
 require "libs.goodies"
 require "libs.intersection"
 require "libs.enums"
@@ -11,6 +13,7 @@ Flux = require "libs.flux"
 Timer = require 'libs.knife.timer'
 
 
+require "core.Menu"
 require "core.Map"
 require "core.Tile"
 
@@ -42,7 +45,7 @@ function love.load()
 	mainFont = love.graphics.newImageFont("fonts/font.png", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\"|$_°_")
 	love.graphics.setFont(mainFont)
 	
-	FOLDER_NAME = "Platformer Simulator"
+	FOLDER_NAME = "The Cake isnt a Lie"
 	love.filesystem.setIdentity(FOLDER_NAME);
 	
 	-- outlinerOnly = newOutliner(true)
@@ -57,33 +60,49 @@ function love.update(dt)
 	Flux.update(dt)
 	
 	camera:update(dt)
-	
-	MapHandler:update(dt)
+	if GAMESTATE == "MENU" then
+		GameMenu:update(dt)
+	elseif GAMESTATE == "PLAYING" then
+		MapHandler:update(dt)
+	end
 end
 function love.draw()
 	camera:draw(function(l,t,w,h)
-		MapHandler:draw()
+		if GAMESTATE == "MENU" then
+			GameMenu:draw()
+		elseif GAMESTATE == "PLAYING" then
+			MapHandler:draw()
+		end
 	end)
 	
 	love.graphics.setColor(1,1,1,1)
 	love.graphics.print("FPS : "..love.timer.getFPS(),0,0)
 end
 
+function love.mousepressed(x,y,b)
+	if GAMESTATE == "MENU" then
+		GameMenu:mousepressed(x,y,b)
+	elseif GAMESTATE == "PLAYING" then
+		MapHandler:keypressed(x,y,b)
+	end
+end
 function love.keypressed(key)
-	MapHandler:keypressed(key)
-	-- local s = camera:getScale()
-	-- print(s)
-	-- if key == "a" then
-		-- camera:setScale(s-0.1)
-	-- elseif key == "e" then
-		-- camera:setScale(s+0.1)
-	-- end
+	if GAMESTATE == "MENU" then
+		GameMenu:keypressed(key)
+	elseif GAMESTATE == "PLAYING" then
+		MapHandler:keypressed(key)
+	end
+	if key == "f5" then
+		local screenshot = love.graphics.captureScreenshot("ScreenShot_"..os.time() .. '.png');
+		print("Screen Successfully taken at : "..love.filesystem.getSaveDirectory().."/"..FOLDER_NAME)
+	end
 end
 
 function FirstInits()
-	camera = Gamera.new(0,0,1280,640)
+	camera = Gamera.new(0,0,WIDTH,HEIGHT)
 	camera:setWindow(0,0,WIDTH,HEIGHT)
 	
+	GameMenu = Menu:new()
 	MapHandler = Map:new()
 	-- table.insert(ENTITIES, Spike:new(4,4))
 	-- table.insert(ENTITIES, Enemy:new(2,8))
@@ -106,5 +125,4 @@ function FirstInits()
 			MapHandler:addLevelFromLevel("maps.Lua Levels."..v:sub(1,#v-4))
 		end
 	end
-	MapHandler:SelectLevel(1)
 end

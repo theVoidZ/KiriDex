@@ -268,9 +268,9 @@ function Map:ChangeKey(id,amount)
 		self.levels[self.current_level].entities[id]:ChangeKey(amount)
 	end
 end
-function Map:Damage(id)
+function Map:Damage(id,type)
 	if self.levels[self.current_level] then
-		self.levels[self.current_level].entities[id]:getDamaged()
+		self.levels[self.current_level].entities[id]:getDamaged(type)
 	end
 end
 function Map:onReach(id,trigger)
@@ -425,12 +425,17 @@ function Map:GenerateRandom(w,h)
 	return g
 end
 
+function Map:mousepressed(x,y,b)
+end
 function Map:keypressed(key)
 	if self.isChangingLevel then return false end
 	if self.levels[self.current_level] then
 		for k = 1,#self.levels[self.current_level].entities do
 			self.levels[self.current_level].entities[k]:keypressed(key)
 		end
+	end
+	if key == "space" then
+		self:NextLevel()
 	end
 end
 function Map:update(dt)
@@ -471,6 +476,9 @@ function Map:draw()
 		love.graphics.setColor(1,1,1,1)
 		love.graphics.print("YOU WON!",WIDTH/2-100,HEIGHT/2-115,0,1/s)
 		love.graphics.print("THANKS FOR PLAYING!",WIDTH/2-100,HEIGHT/2-100,0,1/s)
+		love.graphics.print("THE CAKE WASN'T A LIE :)",WIDTH/2-100,HEIGHT/2-85,0,1/s)
+		love.graphics.draw(self:getAsset("Player"),WIDTH/2-40,HEIGHT/2-60,0,4,4,16)
+		love.graphics.draw(self:getAsset("Cake"),WIDTH/2-40,HEIGHT/2-60,0,4,4)
 	else
 		love.graphics.setColor(1,1,1,1)
 		local desc = ""

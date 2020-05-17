@@ -39,6 +39,8 @@ function Charger:initialize(x,y)
 	self.move_direction_og = self.move_direction
 	self.first_dir = false
 	
+	self.isSolid = true
+	
 	self.history = {}
 end
 
@@ -59,7 +61,7 @@ end
 function Charger:onCollision(id,type)
 	if not self.isActive then return false end
 	if type == "Player" then
-		MapHandler:Damage(id)
+		MapHandler:Damage(id,self.class.name)
 	end
 end
 
@@ -131,12 +133,15 @@ function Charger:MoveYPre(dir,callback,callafter)
 end
 
 
-function Charger:getDamaged()
-	self.isActive = false
-	
-	self.death_sound:stop()
-	self.death_sound:play()
-	-- death sound plays
+function Charger:getDamaged(type)
+	print(type)
+	if type ~= "Spike" then
+		self.isActive = false
+		
+		self.death_sound:stop()
+		self.death_sound:play()
+		-- death sound plays
+	end
 end
 function Charger:update(dt)
 	self.pos.x = self.target_x

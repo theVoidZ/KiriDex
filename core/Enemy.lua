@@ -59,7 +59,7 @@ end
 function Enemy:onCollision(id,type)
 	if not self.isActive then return false end
 	if type == "Player" then
-		MapHandler:Damage(id)
+		MapHandler:Damage(id,self.class.name)
 	end
 end
 
@@ -110,7 +110,7 @@ function Enemy:onAction()
 	self:onMove()
 end
 
-function Enemy:getDamaged()
+function Enemy:getDamaged(type)
 	self.isActive = false
 	
 	self.death_sound:stop()
