@@ -5,14 +5,12 @@ return {
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 11,
-  height = 5,
+  height = 10,
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 2,
   nextobjectid = 1,
-  properties = {
-    ["description"] = "Reach the cake"
-  },
+  properties = {},
   tilesets = {
     {
       name = "Walls baba is you",
@@ -22,9 +20,9 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 16,
+      columns = 12,
       image = "Walls baba is you-sheet.png",
-      imagewidth = 512,
+      imagewidth = 384,
       imageheight = 32,
       objectalignment = "unspecified",
       tileoffset = {
@@ -38,7 +36,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 16,
+      tilecount = 12,
       tiles = {
         {
           id = 0,
@@ -87,22 +85,6 @@ return {
         {
           id = 11,
           type = "box"
-        },
-        {
-          id = 12,
-          type = "enemy2u"
-        },
-        {
-          id = 13,
-          type = "enemy2r"
-        },
-        {
-          id = 14,
-          type = "enemy2d"
-        },
-        {
-          id = 15,
-          type = "enemy2l"
         }
       }
     }
@@ -113,9 +95,9 @@ return {
       x = 0,
       y = 0,
       width = 11,
-      height = 5,
+      height = 10,
       id = 1,
-      name = "Tile Layer 1",
+      name = "Walls",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -124,9 +106,14 @@ return {
       encoding = "lua",
       data = {
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 1, 1, 1, 1, 1, 1, 14, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+        2, 9, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2,
+        2, 1, 4, 8, 8, 8, 1, 1, 1, 1, 2,
+        2, 1, 1, 2, 2, 2, 2, 1, 1, 1, 2,
+        2, 1, 1, 8, 1, 1, 2, 5, 1, 1, 2,
+        2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 2,
+        2, 1, 1, 2, 2, 1, 2, 1, 1, 1, 2,
+        2, 3, 1, 1, 1, 8, 2, 1, 1, 1, 2,
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     }

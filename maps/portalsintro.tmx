@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="11" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <editorsettings>
+  <export target="Lua Levels/level8.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="description" value="Hmmm"/>
+ </properties>
+ <tileset firstgid="1" source="Walls baba is you.tsx"/>
+ <layer id="1" name="Walls" width="11" height="10">
+  <data>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="12"/>
+   <tile gid="10"/>
+   <tile gid="1"/>
+   <tile gid="17"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="14"/>
+   <tile gid="10"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="12"/>
+   <tile gid="12"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="7"/>
+   <tile gid="7"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="12"/>
+   <tile gid="3"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="7"/>
+   <tile gid="5"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="12"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="12"/>
+   <tile gid="2"/>
+   <tile gid="13"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="12"/>
+   <tile gid="12"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="12"/>
+   <tile gid="12"/>
+   <tile gid="11"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="7"/>
+   <tile gid="15"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="8"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="5"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="9"/>
+   <tile gid="11"/>
+   <tile gid="8"/>
+   <tile gid="8"/>
+   <tile gid="2"/>
+   <tile gid="13"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="18"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+  </data>
+ </layer>
+</map>

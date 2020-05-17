@@ -4,14 +4,14 @@ return {
   tiledversion = "2020.04.10",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 11,
-  height = 5,
+  width = 10,
+  height = 10,
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 2,
   nextobjectid = 1,
   properties = {
-    ["description"] = "Reach the cake"
+    ["description"] = "You can Cross enemies"
   },
   tilesets = {
     {
@@ -120,8 +120,8 @@ return {
       type = "tilelayer",
       x = 0,
       y = 0,
-      width = 11,
-      height = 5,
+      width = 10,
+      height = 10,
       id = 1,
       name = "Tile Layer 1",
       visible = true,
@@ -131,11 +131,16 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 4, 1, 1, 1, 1, 1, 1, 3, 2,
+        2, 1, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 1, 2, 2, 1, 8, 8, 1, 1, 2,
+        2, 1, 8, 8, 8, 8, 8, 8, 1, 2,
+        2, 1, 8, 8, 1, 8, 8, 8, 1, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 8, 2,
+        2, 1, 1, 5, 1, 5, 1, 5, 1, 2,
+        2, 9, 7, 1, 7, 1, 7, 1, 1, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     }
   }

@@ -1,19 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="11" height="5" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
  <editorsettings>
-  <export target="first_tutorial2.lua" format="lua"/>
+  <export target="Lua Levels/level2.lua" format="lua"/>
  </editorsettings>
  <properties>
   <property name="description" value="Dont stop on enemies"/>
  </properties>
  <tileset firstgid="1" source="Walls baba is you.tsx"/>
  <layer id="1" name="Tile Layer 1" width="11" height="5">
-  <data encoding="csv">
-2,2,2,2,2,2,2,2,2,2,2,
-2,1,1,1,1,5,1,1,1,1,2,
-2,3,1,1,1,1,1,1,1,9,2,
-2,1,1,1,1,1,1,1,1,1,2,
-2,2,2,2,2,2,2,2,2,2,2
-</data>
+  <data>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="3"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="9"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="5"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+  </data>
  </layer>
 </map>

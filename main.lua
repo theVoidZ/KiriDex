@@ -100,8 +100,11 @@ function FirstInits()
 	-- MapHandler:addLevelFromLevel("maps.sandbox")
 	
 	local files = love.filesystem.getDirectoryItems("maps/Lua Levels")
+	table.sort(files)
 	for k,v in pairs(files) do
-		MapHandler:addLevelFromLevel("maps.Lua Levels."..v:sub(1,#v-4))
+		if string.lower(v:sub(#v-3)) == ".lua" then
+			MapHandler:addLevelFromLevel("maps.Lua Levels."..v:sub(1,#v-4))
+		end
 	end
 	MapHandler:SelectLevel(1)
 end

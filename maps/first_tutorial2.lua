@@ -11,7 +11,7 @@ return {
   nextlayerid = 2,
   nextobjectid = 1,
   properties = {
-    ["description"] = "Reach the cake"
+    ["description"] = "Dont stop on enemies"
   },
   tilesets = {
     {
@@ -133,7 +133,7 @@ return {
       data = {
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
         2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
+        2, 3, 1, 1, 1, 5, 1, 1, 1, 9, 2,
         2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }

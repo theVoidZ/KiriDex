@@ -5,13 +5,13 @@ return {
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 11,
-  height = 5,
+  height = 10,
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 2,
   nextobjectid = 1,
   properties = {
-    ["description"] = "Reach the cake"
+    ["description"] = "Hmmm"
   },
   tilesets = {
     {
@@ -121,9 +121,9 @@ return {
       x = 0,
       y = 0,
       width = 11,
-      height = 5,
+      height = 10,
       id = 1,
-      name = "Tile Layer 1",
+      name = "Walls",
       visible = true,
       opacity = 1,
       offsetx = 0,
@@ -132,9 +132,14 @@ return {
       encoding = "lua",
       data = {
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+        2, 12, 1, 1, 12, 12, 1, 1, 1, 1, 2,
+        2, 12, 1, 12, 12, 2, 8, 1, 4, 8, 2,
+        2, 12, 12, 12, 12, 2, 8, 6, 1, 8, 2,
+        2, 1, 12, 12, 12, 2, 8, 1, 4, 8, 2,
+        2, 12, 12, 1, 12, 2, 8, 1, 4, 8, 2,
+        2, 12, 1, 1, 1, 2, 8, 6, 1, 8, 2,
+        2, 12, 1, 12, 1, 2, 8, 1, 4, 8, 2,
+        2, 12, 1, 9, 12, 2, 4, 4, 3, 6, 2,
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     }

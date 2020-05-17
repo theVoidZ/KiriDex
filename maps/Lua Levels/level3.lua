@@ -11,7 +11,7 @@ return {
   nextlayerid = 2,
   nextobjectid = 1,
   properties = {
-    ["description"] = "Reach the cake"
+    ["description"] = "Spikes hurt on Open only"
   },
   tilesets = {
     {
@@ -132,9 +132,9 @@ return {
       encoding = "lua",
       data = {
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
+        2, 4, 8, 8, 8, 6, 1, 1, 1, 1, 2,
+        2, 3, 8, 1, 8, 8, 1, 7, 1, 9, 2,
+        2, 4, 8, 8, 8, 6, 1, 1, 7, 1, 2,
         2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     }

@@ -4,27 +4,27 @@ return {
   tiledversion = "2020.04.10",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 11,
-  height = 5,
+  width = 15,
+  height = 15,
   tilewidth = 32,
   tileheight = 32,
   nextlayerid = 2,
   nextobjectid = 1,
   properties = {
-    ["description"] = "Dont stop on enemies"
+    ["description"] = "oh Doors, R to Restart"
   },
   tilesets = {
     {
       name = "Walls baba is you",
       firstgid = 1,
-      filename = "Walls baba is you.tsx",
+      filename = "../Walls baba is you.tsx",
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      columns = 12,
-      image = "Walls baba is you-sheet.png",
-      imagewidth = 384,
+      columns = 18,
+      image = "../Walls baba is you-sheet.png",
+      imagewidth = 576,
       imageheight = 32,
       objectalignment = "unspecified",
       tileoffset = {
@@ -38,7 +38,7 @@ return {
       },
       properties = {},
       terrains = {},
-      tilecount = 12,
+      tilecount = 18,
       tiles = {
         {
           id = 0,
@@ -87,6 +87,30 @@ return {
         {
           id = 11,
           type = "box"
+        },
+        {
+          id = 12,
+          type = "enemy2u"
+        },
+        {
+          id = 13,
+          type = "enemy2r"
+        },
+        {
+          id = 14,
+          type = "enemy2d"
+        },
+        {
+          id = 15,
+          type = "enemy2l"
+        },
+        {
+          id = 16,
+          type = "portalblue"
+        },
+        {
+          id = 17,
+          type = "portalorange"
         }
       }
     }
@@ -96,8 +120,8 @@ return {
       type = "tilelayer",
       x = 0,
       y = 0,
-      width = 11,
-      height = 5,
+      width = 15,
+      height = 15,
       id = 1,
       name = "Tile Layer 1",
       visible = true,
@@ -107,11 +131,21 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        2, 1, 1, 1, 1, 5, 1, 1, 1, 1, 2,
-        2, 3, 1, 1, 1, 1, 1, 1, 1, 9, 2,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 1, 1, 14, 8, 8, 1, 1, 1, 14, 1, 1, 1, 1, 2,
+        2, 1, 1, 16, 8, 8, 1, 1, 1, 16, 1, 1, 1, 1, 2,
+        2, 10, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 11, 2,
+        2, 2, 11, 2, 2, 1, 14, 1, 1, 14, 1, 1, 14, 1, 2,
+        2, 1, 10, 1, 2, 1, 10, 1, 1, 1, 1, 1, 1, 1, 2,
+        2, 2, 2, 11, 2, 1, 16, 1, 1, 16, 1, 1, 16, 1, 2,
+        2, 10, 1, 1, 2, 2, 2, 11, 2, 2, 2, 11, 2, 2, 2,
+        2, 2, 11, 2, 2, 1, 10, 8, 1, 2, 1, 1, 1, 1, 2,
+        2, 8, 1, 8, 2, 2, 11, 2, 2, 2, 2, 2, 11, 2, 2,
+        2, 1, 3, 1, 2, 1, 1, 10, 1, 2, 10, 10, 1, 8, 2,
+        2, 1, 1, 1, 2, 8, 1, 1, 1, 2, 2, 2, 11, 2, 2,
+        2, 8, 1, 8, 2, 11, 2, 2, 2, 2, 2, 2, 11, 2, 2,
+        2, 2, 10, 2, 2, 1, 1, 8, 1, 9, 1, 8, 8, 8, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
       }
     }
   }

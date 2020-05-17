@@ -131,7 +131,7 @@ function Player:draw()
 	love.graphics.draw(self.image,self.pos.x,self.pos.y,0,self.scale,self.scale)
 	
 	if self.keys_count ~= 0 then
-		love.graphics.setColor(1,1,1,1)
+		love.graphics.setColor(1,1,0,1)
 		love.graphics.print(self.keys_count,self.pos.x,self.pos.y-15)
 	end
 	

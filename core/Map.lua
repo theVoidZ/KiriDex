@@ -193,8 +193,6 @@ function Map:addLevel(level,ents,size,desc) -- grid.txt and entities
 	lvl.entities = ents or {}
 	
 	table.insert(self.levels,lvl)
-	
-	print("LEVEL ADDED",#self.levels)
 end
 
 function Map:DisableObjects(id)
@@ -468,17 +466,18 @@ function Map:draw()
 		end
 	end
 	love.graphics.setStencilTest()
+	local s = camera:getScale()
 	if self.hasWon then
 		love.graphics.setColor(1,1,1,1)
-		love.graphics.print("YOU WON!",WIDTH/2-100,HEIGHT/2-115)
-		love.graphics.print("THANKS FOR PLAYING!",WIDTH/2-100,HEIGHT/2-100)
+		love.graphics.print("YOU WON!",WIDTH/2-100,HEIGHT/2-115,0,1/s)
+		love.graphics.print("THANKS FOR PLAYING!",WIDTH/2-100,HEIGHT/2-100,0,1/s)
 	else
 		love.graphics.setColor(1,1,1,1)
 		local desc = ""
 		if self.levels[self.current_level] then
 			desc = self.levels[self.current_level].desc
 		end
-		love.graphics.print("Level : "..self.current_level.." | "..desc,0,0)
+		love.graphics.print("Level : "..self.current_level.." | "..desc,0,0,0,1/s)
 	end
 	if self.isChangingLevel then
 		love.graphics.setColor(0,0,0,1)

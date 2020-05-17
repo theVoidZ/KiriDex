@@ -2,7 +2,7 @@ local class = require 'libs.middleclass'
 
 Entity = class('Entity')
 
-Entity.static.move_timer = 200
+Entity.static.move_timer = 250
 Entity.static.entities_count = 0
 
 function Entity:initialize()
@@ -82,14 +82,13 @@ function Entity:onMove(isTrigger)
 			MapHandler:onAction(self.id)
 		end
 		self.canMove = false
-		Timer.after(self.move_timer/1000,function() self:onReach(isTrigger) end)
+		Timer.after((self.move_timer+10)/1000,function() self:onReach(isTrigger) end)
 	end
 end
 
 function Entity:onReach(isTrigger)
-	self.canMove = true
 	-- if isTrigger then
-	Timer.after(1/1000,function() MapHandler:onReach(self.id,isTrigger) end)
+	Timer.after(1/1000,function() MapHandler:onReach(self.id,isTrigger);self.canMove = true end)
 	-- end
 end
 function Entity:getHistory()
@@ -147,5 +146,5 @@ function Entity:CalculatePos(speed_mult)
 	local target_x = (self.pos_tile.x-1) * (tw) + tw/2 - self.size.x/2
 	local target_y = (self.pos_tile.y-1) * (th) + th/2 - self.size.y/2
 	
-	Flux.to(self, self.move_timer/1000/speed_mult, {target_x = target_x,target_y = target_y})
+	Flux.to(self, (self.move_timer+10)/1000/speed_mult, {target_x = target_x,target_y = target_y})
 end

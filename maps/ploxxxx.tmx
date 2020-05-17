@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2020.04.10" orientation="orthogonal" renderorder="right-down" width="11" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <editorsettings>
+  <export target="Lua Levels/level7.lua" format="lua"/>
+ </editorsettings>
+ <properties>
+  <property name="description" value="Hmmm"/>
+ </properties>
+ <tileset firstgid="1" source="Walls baba is you.tsx"/>
+ <layer id="1" name="Walls" width="11" height="10">
+  <data encoding="csv">
+2,2,2,2,2,2,2,2,2,2,2,
+2,12,1,1,12,12,1,1,1,1,2,
+2,12,1,12,12,2,8,1,4,8,2,
+2,12,12,12,12,2,8,6,1,8,2,
+2,1,12,12,12,2,8,1,4,8,2,
+2,12,12,1,12,2,8,1,4,8,2,
+2,12,1,1,1,2,8,6,1,8,2,
+2,12,1,12,1,2,8,1,4,8,2,
+2,12,1,9,12,2,4,4,3,6,2,
+2,2,2,2,2,2,2,2,2,2,2
+</data>
+ </layer>
+</map>
