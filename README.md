@@ -4,7 +4,7 @@
 > - **Kirito**: [itch.io](https://kirito0625.itch.io/ "itch.io"), [github](https://github.com/theVoidZ "github"), discord: Kirito#7331
 > - **WexDex**: [itch.io](https://wexdex.itch.io/ "itch.io"), [github](https://github.com/WexDex "github"), discord: WexDex#7312
 
-#### GameJam: [Untitled Game Jam #18-Trash](https://itch.io/jam/untitled-game-jam-22 "Untitled Game Jam #18-Trash")
+#### GameJam: [Untitled Game Jam #22-Trash](https://itch.io/jam/untitled-game-jam-22 "Untitled Game Jam #22-Trash")
 
 This Game prototypes Tetris in an unusual gameplay experience, that evolves into an different Genre.
 
