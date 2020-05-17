@@ -6,32 +6,33 @@
 - Each Game is put in a separate branch. refere to README of each branch for more details about gameplay and submission.
  
  ### [Impractical Tetris](https://github.com/theVoidZ/KiriDex/tree/impractical-tetris "Impractical Tetris"): ( Mini-Jam #54 )
- - **theme**: Memroies
- - **theme extra/limitation**: The game must start and end as different genres
+ - **Theme**: Memroies
+ - **Theme extra/limitation**: The game must start and end as different genres
  - **Engine**: Unity 2d
  
 ### [Platformer Simulator](https://github.com/theVoidZ/KiriDex/tree/platform-simulator "Platformer Simulator"): ( Untitled Game Jam #21 )
- - **theme**: Simulator
+ - **Theme**: Simulator
  - **Engine**: LÖVE
  
-### [Gravity Has Joined the Game]( "Gravity Has Joined the Game"): ( Untitled Game Jam #18 )
- - **theme**: Gravity
+### [Gravity Has Joined the Game](https://github.com/theVoidZ/KiriDex "Gravity Has Joined the Game"): ( Untitled Game Jam #18 )
+ - **Theme**: Gravity
  - **Engine**: LÖVE
  
 ### [Glitch Has Joined the Game](https://github.com/theVoidZ/KiriDex/tree/glitch-game "Glitch Has Joined the Game"): ( Untitled Game Jam #22 )
- - **theme**: Trash
+ - **Theme**: Trash
  - **Engine**: Unity 2d
  
-### [JoJo Bizarre Shooting]( "JoJo Bizarre Shooting"): ( JoJo Jam )
- - **theme**: Range
+### [JoJo Bizarre Shooting](https://github.com/theVoidZ/KiriDex "JoJo Bizarre Shooting"): ( JoJo Jam )
+ - **Theme**: Range
+ - **Theme extra/limitation**: The game must be JoJo Related
  - **Engine**: LÖVE
  
-### [Space Cells]( "Space Cells"): ( Quarantine Jam )
- - **theme**: A lot of
+### [Space Cells](https://github.com/theVoidZ/KiriDex "Space Cells"): ( Quarantine Jam )
+ - **Theme**: A lot of
  - **Engine**: LÖVE
  
-### [Time Bending]( "Time Bending"): ( LÖVE Jam 2020 )
- - **theme**: FREQUENCY
+### [Time Bending](https://github.com/theVoidZ/KiriDex "Time Bending"): ( LÖVE Jam 2020 )
+ - **Theme**: FREQUENCY
  - **Engine**: LÖVE
  
  
