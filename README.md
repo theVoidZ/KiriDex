@@ -6,7 +6,7 @@
 
 #### GameJam: [Quarantine Jam - A Lot of](https://itch.io/jam/quarantinejam "Quarantine Jam - A Lot of")
 
-a Game made with [LÖVE 11.3](https://love2d.org/ "LÖVE 11.3") for the JoJo Jam.
+a Game made with [LÖVE 11.3](https://love2d.org/ "LÖVE 11.3") for the Quarantine Jam.
 
 you play as a space ship and try to shoot enemies, larger enemies split multiple times, the further the wave is the more enemies spawn!
 
