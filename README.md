@@ -17,3 +17,8 @@ anyways have fun and thanks for playing.
 Install :
 
 - Extract then execute "play.bat" for Windows users or "make.sh" for Linux users
+
+Screenshots:
+<img src = "screens/screen1.png">
+<img src = "screens/screen2.png">
+<img src = "screens/screen3.png">
