@@ -31,7 +31,7 @@
  - **Theme extra/limitation**: The game must be JoJo Related
  - **Engine**: LÖVE
  
-### [Space Cells](https://github.com/theVoidZ/KiriDex "Space Cells"): ( Quarantine Jam )
+### [Space Cells](https://github.com/theVoidZ/KiriDex/tree/space-cells "Space Cells"): ( Quarantine Jam )
  - **Theme**: A lot of
  - **Engine**: LÖVE
  
