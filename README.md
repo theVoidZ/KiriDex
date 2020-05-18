@@ -18,7 +18,7 @@
  - **Theme**: Simulator
  - **Engine**: LÖVE
  
-### [Gravity Has Joined the Game](https://github.com/theVoidZ/KiriDex "Gravity Has Joined the Game"): ( Untitled Game Jam #18 )
+### [Gravity Has Joined the Game](https://github.com/theVoidZ/KiriDex/tree/gravity-joined "Gravity Has Joined the Game"): ( Untitled Game Jam #18 )
  - **Theme**: Gravity
  - **Engine**: LÖVE
  
