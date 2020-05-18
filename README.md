@@ -27,7 +27,7 @@ Install :
 
 Screenshots:
 
-<img src = "screens/Screens (1).png">
-<img src = "screens/Screens (4).png">
-<img src = "screens/Screens (2).png">
-<img src = "screens/Screens (5).png">
+<img src = "gfx/screens/JoJo Bizarre Shooting/Screens (1).png">
+<img src = "gfx/screens/JoJo Bizarre Shooting/Screens (4).png">
+<img src = "gfx/screens/JoJo Bizarre Shooting/Screens (2).png">
+<img src = "gfx/screens/JoJo Bizarre Shooting/Screens (5).png">
