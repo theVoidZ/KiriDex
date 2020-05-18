@@ -14,15 +14,13 @@ after each wave you gain 1 skillpoint to upgrade your Stats or Unlock new Powers
 
 Controls:
 
-WASD - move
+- WASD - move
 
-Left click - shoot
+- Left click - shoot
 
-2 - use Beam
+- 2 - use Beam
 
-3 - use Shockwave
-
-
+- 3 - use Shockwave
 
 
 Install :
