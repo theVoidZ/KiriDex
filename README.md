@@ -35,7 +35,7 @@
  - **Theme**: A lot of
  - **Engine**: LÖVE
  
-### [Time Bending](https://github.com/theVoidZ/KiriDex "Time Bending"): ( LÖVE Jam 2020 )
+### [Time Bending](https://github.com/theVoidZ/KiriDex/tree/time-bending "Time Bending"): ( LÖVE Jam 2020 )
  - **Theme**: FREQUENCY
  - **Engine**: LÖVE
  
