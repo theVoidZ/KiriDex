@@ -29,3 +29,4 @@ Install :
 Screenshots:
 
 <img src = "gfx/screen.png">
+<img src = "gfx/screen2.png">
