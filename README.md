@@ -26,7 +26,7 @@
  - **Theme**: Trash
  - **Engine**: Unity 2d
  
-### [JoJo Bizarre Shooting](https://github.com/theVoidZ/KiriDex "JoJo Bizarre Shooting"): ( JoJo Jam )
+### [JoJo Bizarre Shooting](https://github.com/theVoidZ/KiriDex/tree/jojo "JoJo Bizarre Shooting"): ( JoJo Jam )
  - **Theme**: Range
  - **Theme extra/limitation**: The game must be JoJo Related
  - **Engine**: LÖVE
